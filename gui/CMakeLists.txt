@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 PROJECT(Gui)
 
-INCLUDE_DIRECTORIES(core_include
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/..)
+
+INCLUDE_DIRECTORIES(../core
 					gui_include)
 
 FILE(GLOB SRC 		src/*.cpp)

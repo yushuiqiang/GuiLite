@@ -26,5 +26,15 @@
 *.app
 
 # Visual studio
-/core/Debug
-/core/.vs/core/v15
+Debug
+Release
+.vs
+
+# cmake
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
+
+libcore.a
+libgui.a
