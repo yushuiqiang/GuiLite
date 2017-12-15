@@ -1,5 +1,7 @@
 # GuiLite 揭示UI原理，打造你自己的UI（框架）- 开发者qq群：527251257
-![Demo](demo.gif)
+![Demo](doc/demo.gif)
+
+![编译方法](doc/HowToBuild.md)
 
 超轻量UI框架 - GuiLite是由6千行左右的C/C++代码编写而成，它像MFC，QT一样为开发者提供界面支持。
 
@@ -50,7 +52,7 @@ GuiLite只作两个工作：界面元素管理和图形绘制。
 
 ### 图层管理
 GuiLite的所有图层，如下图所示：
-![Graphic layer](GraphicLayer.png)
+![Graphic layer](doc/GraphicLayer.png)
 
 display层：
 该层对应了物理显存，display层决定了一个显示终端的最终显示效果；通常系统中至少有一个display层。
