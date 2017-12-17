@@ -1,7 +1,7 @@
 # GuiLite 揭示UI原理，打造你自己的UI（框架）- 开发者qq群：527251257
 ![Demo](doc/demo.gif)
 
-![编译方法](doc/HowToBuild.md)，[界面布局方法](doc/HowLayoutWork.md)，[消息传递方法](doc/HowMessageWork.md)
+[编译方法](doc/HowToBuild.md)，[界面布局方法](doc/HowLayoutWork.md)，[消息传递方法](doc/HowMessageWork.md)
 
 超轻量UI框架 - GuiLite是由6千行左右的C/C++代码编写而成，它像MFC，QT一样为开发者提供界面支持。
 
