@@ -18,7 +18,7 @@
 为了聚焦UI核心原理，GuiLite会一直保持单片机的代码体量。
 
 ## 快速上手
-- 下载实例代码: `git clone https://github.com/idea4good/GuiLiteSamples.git`
+- 下载实例代码: `git clone https://gitee.com/idea4good/GuiLiteSamples`
 - `cd GuiLiteSamples\HostMonitor`
 - [编译/运行在任意平台上](https://github.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/README.md)
 
@@ -32,6 +32,6 @@
 [如何传递消息?](doc/HowMessageWork.md)
 
 ## 实例代码及运行效果:
-[GuiLiteSamples repository](https://github.com/idea4good/GuiLiteSamples)
+[GuiLiteSamples repository](https://gitee.com/idea4good/GuiLiteSamples)
 
 [GuiLiteSamples video](http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
