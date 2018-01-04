@@ -1,14 +1,21 @@
 # GuiLite - 简洁出奇迹 - 开发者qq群：`527251257`
-![Mac](doc/Mac.gif) ![Mixed Reality](doc/WinMR.gif)
+在IOS，Mac下的运行效果:
+
+![Mac](doc/Mac.gif) ![IOS](doc/Ios.landscape.gif)
+
+在Android，嵌入式ARM Linux下的运行效果:
+
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-超轻量UI框架 - GuiLite是由6千行的C++代码编写而成，通过简洁的设计，让界面开发更加自由、高效、通用（上图是GuiLite在**Mac, Windows VR, Android, Linux上的运行效果**）。
+在Windows混合现实下的运行效果:
 
-- GuiLite可以完美运行在Mac，Windows（包含VR），Android，**单片机**和**市面所有的 ARM Linux物联网终端**设备上。
-- GuiLite可以嵌入在MFC、QT、 Android等其他UI系统中，让你的界面集百家之长，又不失个性。
+![Win MR](doc/WinMR.gif)
+
+- GuiLite（超轻量UI框架）只有6千行代码，可以完美运行在**IOS，Android，Windows（包含VR），Mac，单片机*和市面所有的 ARM Linux物联网终端***设备上。
+- GuiLite可以嵌入在IOS、Android、MFC、QT等其他UI系统中，让你的界面集百家之长，又不失个性。
 - GuiLite鼓励混合编程，开发者可以用GuiLite接管UI部分，用Swift，Java，Go，C#，Python发开业务部分。
 
-相比QT、MFC，GuiLite只聚焦现代感的界面开发，不预设开发者的使用场景。只使用最基础的C++语言特性，直达绘制底层。希望通过减少代码，调用层次，让UI框架的体积更小，效率更高。
+相比QT、MFC，GuiLite不预设开发者的使用场景，不在具体功能上，大包大揽；用框架的简洁，换取开发的自由；GuiLite在图形绘制上面，力图一步到位，运行效率感人。
 
 ## 为什么开发GuiLite？如何使用？
 任何UI框架都不是为你我而生的，只有掌握核心原理，对其深度定制，才能真正掌握自己的命运！因此，我们开发了GuiLite，希望用这6千行代码揭示UI的核心原理和定制方法。
@@ -20,7 +27,7 @@
 ## 快速上手
 - 下载实例代码: `git clone https://gitee.com/idea4good/GuiLiteSamples`
 - `cd GuiLiteSamples\HostMonitor`
-- [编译/运行在任意平台上](https://github.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/README.md)
+- [编译/运行在任意平台上](https://gitee.com/idea4good/GuiLiteSamples/tree/master/HostMonitor/README.md)
 
 ## 开发文档
 [代码走读](doc/CodeWalkthough-cn.md)
@@ -35,3 +42,6 @@
 [GuiLiteSamples repository](https://gitee.com/idea4good/GuiLiteSamples)
 
 [GuiLiteSamples video](http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
+
+## 代码镜像
+[GitHub链接](https://github.com/idea4good/GuiLite)
