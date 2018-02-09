@@ -39,9 +39,9 @@
 [如何传递消息?](doc/HowMessageWork.md)
 
 ## 实例代码及运行效果:
-[GuiLiteSamples repository](https://gitee.com/idea4good/GuiLiteSamples)
+[GuiLiteSamples 代码库](https://gitee.com/idea4good/GuiLiteSamples)
 
-[GuiLiteSamples video](http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
+[GuiLiteSamples 运行视频](http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
 
 ## 代码镜像
 [GitHub链接](https://github.com/idea4good/GuiLite)
