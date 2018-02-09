@@ -30,7 +30,7 @@
 - [编译/运行在任意平台上](https://gitee.com/idea4good/GuiLiteSamples/tree/master/HostMonitor/README.md)
 
 ## 开发文档
-[代码走读](doc/CodeWalkthough-cn.md)
+[代码走读](doc/CodeWalkthrough-cn.md)
 
 [如何编译?](doc/HowToBuild.md)
 
