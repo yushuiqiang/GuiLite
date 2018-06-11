@@ -30,7 +30,7 @@
 - [编译/运行在任意平台上](https://gitee.com/idea4good/GuiLiteSamples/tree/master/HostMonitor/README.md)
 
 ## 开发文档
-[代码走读](doc/CodeWalkthrough-cn.md)
+[代码结构及注释](doc/CodeWalkthrough-cn.md)
 
 [如何编译?](doc/HowToBuild.md)
 
@@ -38,10 +38,12 @@
 
 [如何传递消息?](doc/HowMessageWork.md)
 
-## 实例代码及运行效果:
-[GuiLiteSamples 代码库](https://gitee.com/idea4good/GuiLiteSamples)
+## 视频链接:
+[GuiLite简介](https://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
 
-[GuiLiteSamples 运行视频](http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
+[GuiLite办公室](https://v.youku.com/v_show/id_XMzYxNTE3MTI0MA)
+## 实例代码链接
+[GuiLiteSamples](https://gitee.com/idea4good/GuiLiteSamples)
 
-## 代码镜像
+## GitHub链接
 [GitHub链接](https://github.com/idea4good/GuiLite)
