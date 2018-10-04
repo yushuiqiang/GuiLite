@@ -15,26 +15,16 @@ typedef enum
 	Z_ORDER_LEVEL_MAX
 }Z_ORDER_LEVEL;
 
-#define INVALID_RGN 0xFFFFFF
-#define COLOR_USERDEF GLT_RGB(41,49,49)
-#define DUMMY_COLOR	GLT_RGB(0,0,0)
-
-typedef struct struct_custom_shape
-{
-	int l;			 
-	int t;			 
-	int r;			 
-	int b;
-	unsigned int color;
-}CUSTOM_SHAPE;
+typedef struct struct_color_rect COLOR_RECT;
 
 class c_display;
 class c_surface {
 	friend class c_display;
 public:
 	virtual void set_pixel(int x, int y, unsigned int rgb, unsigned int z_order);
-	virtual void fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order);
 	virtual unsigned int get_pixel(int x, int y, unsigned int z_order);
+	virtual void fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order);
+	void fill_rect_ex(int l, int t, int r, int b, unsigned int color, const COLOR_RECT* extend_rects, int z_order);
 
 	int get_width() { return m_width; }
 	int get_height() { return m_height; }
@@ -42,7 +32,6 @@ public:
 	void draw_vline(int x, int y0, int y1, unsigned int rgb, unsigned int z_order);
 	void draw_line(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order);
 	void draw_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order);
-	void draw_custom_shape(int l, int t, int r, int b, unsigned int color, const CUSTOM_SHAPE pRgn[], int z_order);
 	int flush_scrren(int left, int top, int right, int bottom);
 
 	bool is_valid(c_rect rect);

@@ -4,13 +4,12 @@
 #include "core_include/wnd.h"
 #include "core_include/msg.h"
 #include "core_include/surface.h"
-#include "core_include/resource_type.h"
+#include "core_include/resource.h"
 #include "core_include/bitmap.h"
 #include "core_include/word.h"
 #include "../gui_include/button.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include "../gui_include/dialog.h"
-#include "../gui_include/shape_resource.h"
 
 #include <string.h>
 
@@ -40,9 +39,9 @@ void c_dialog::on_paint()
 		}
 	}
 
-	if (m_str_id)
+	if (m_str)
 	{
-		c_word::draw_string(m_surface, m_z_order, m_str_id, rect.m_left+35, rect.m_top, FONT_ENG_MB_AA(), GLT_RGB(255, 255, 255), COLOR_TRANPARENT, ALIGN_LEFT);
+		c_word::draw_string(m_surface, m_z_order, m_str, rect.m_left+35, rect.m_top, c_my_resource::get_font(FONT_ENG_MB_AA), GLT_RGB(255, 255, 255), COLOR_TRANPARENT, ALIGN_LEFT);
 	}
 }
 

@@ -4,6 +4,7 @@
 #include "../core_include/wnd.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
+#include "../core_include/resource.h"
 #include <string.h>
 #include <stdlib.h>
 
@@ -374,24 +375,28 @@ int c_surface::copy_layer_pixel_2_fb(int x, int y, unsigned int z_order)
 	return 0;
 }
 
-void c_surface::draw_custom_shape(int l, int t, int r, int b, unsigned int color, const CUSTOM_SHAPE pRgn[], int z_order)
+void c_surface::fill_rect_ex(int l, int t, int r, int b, unsigned int color, const COLOR_RECT* extend_rects, int z_order)
 {
-	int i = 0;
-	int templ, tempt, tempr, tempb;
-	unsigned int tempcolor;
-	while (INVALID_RGN != pRgn[i].l)
+	if (NULL == extend_rects)
 	{
-		templ = (pRgn[i].l < 0) ? (r + 1 + pRgn[i].l) : pRgn[i].l + l;
-		tempt = (pRgn[i].t < 0) ? (b + 1 + pRgn[i].t) : pRgn[i].t + t;
-		tempr = (pRgn[i].r < 0) ? (r + 1 + pRgn[i].r) : pRgn[i].r + l;
-		tempb = (pRgn[i].b < 0) ? (b + 1 + pRgn[i].b) : pRgn[i].b + t;
+		return fill_rect(l, t, r, b, color, z_order);
+	}
+
+	COLOR_RECT* p_item = (COLOR_RECT*)extend_rects;
+	int templ, tempt, tempr, tempb;
+	for(int i = 0; INVALID_RGN != p_item[i].l; i++)
+	{
+		templ = (p_item[i].l < 0) ? (r + 1 + p_item[i].l) : p_item[i].l + l;
+		tempt = (p_item[i].t < 0) ? (b + 1 + p_item[i].t) : p_item[i].t + t;
+		tempr = (p_item[i].r < 0) ? (r + 1 + p_item[i].r) : p_item[i].r + l;
+		tempb = (p_item[i].b < 0) ? (b + 1 + p_item[i].b) : p_item[i].b + t;
 
 		if (templ >= tempr)
 			tempr = templ;
 		if (tempt >= tempb)
 			tempb = tempt;
 
-		tempcolor = (COLOR_USERDEF == pRgn[i].color) ? (color) : pRgn[i].color;
+		unsigned int tempcolor = (COLOR_USERDEF == p_item[i].color) ? (color) : p_item[i].color;
 	
 		for (int y = tempt ; y <= tempb; y++)
 		{ 
@@ -400,7 +405,6 @@ void c_surface::draw_custom_shape(int l, int t, int r, int b, unsigned int color
 				set_pixel(x , y, tempcolor, z_order);
 			}
 		}
-		i++;
 	}
 }
 

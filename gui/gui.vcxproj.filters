@@ -26,9 +26,6 @@
     <ClInclude Include="gui_include\edit.h">
       <Filter>Header Files\gui_include</Filter>
     </ClInclude>
-    <ClInclude Include="gui_include\font.h">
-      <Filter>Header Files\gui_include</Filter>
-    </ClInclude>
     <ClInclude Include="gui_include\gesture.h">
       <Filter>Header Files\gui_include</Filter>
     </ClInclude>
@@ -39,9 +36,6 @@
       <Filter>Header Files\gui_include</Filter>
     </ClInclude>
     <ClInclude Include="gui_include\list_box.h">
-      <Filter>Header Files\gui_include</Filter>
-    </ClInclude>
-    <ClInclude Include="gui_include\shape_resource.h">
       <Filter>Header Files\gui_include</Filter>
     </ClInclude>
     <ClInclude Include="gui_include\spinbox.h">
@@ -92,6 +86,9 @@
     <ClInclude Include="..\core\core_include\resource_type.h">
       <Filter>Header Files\core_include</Filter>
     </ClInclude>
+    <ClInclude Include="gui_include\my_resource.h">
+      <Filter>Header Files\gui_include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\button.cpp">
@@ -104,9 +101,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\label.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\shape_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\spinbox.cpp">
@@ -125,6 +119,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\slide_group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\my_resource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -180,13 +180,12 @@
     <ClInclude Include="gui_include\button.h" />
     <ClInclude Include="gui_include\dialog.h" />
     <ClInclude Include="gui_include\edit.h" />
-    <ClInclude Include="gui_include\font.h" />
+    <ClInclude Include="gui_include\my_resource.h" />
     <ClInclude Include="gui_include\gesture.h" />
     <ClInclude Include="gui_include\keyboard.h" />
     <ClInclude Include="gui_include\label.h" />
     <ClInclude Include="gui_include\list_box.h" />
     <ClInclude Include="gui_include\slide_group.h" />
-    <ClInclude Include="gui_include\shape_resource.h" />
     <ClInclude Include="gui_include\spinbox.h" />
     <ClInclude Include="gui_include\table.h" />
   </ItemGroup>
@@ -194,12 +193,12 @@
     <ClCompile Include="src\button.cpp" />
     <ClCompile Include="src\dialog.cpp" />
     <ClCompile Include="src\edit.cpp" />
+    <ClCompile Include="src\my_resource.cpp" />
     <ClCompile Include="src\gesture.cpp" />
     <ClCompile Include="src\keyboard.cpp" />
     <ClCompile Include="src\label.cpp" />
     <ClCompile Include="src\list_box.cpp" />
     <ClCompile Include="src\slide_group.cpp" />
-    <ClCompile Include="src\shape_resource.cpp" />
     <ClCompile Include="src\spinbox.cpp" />
     <ClCompile Include="src\table.cpp" />
   </ItemGroup>

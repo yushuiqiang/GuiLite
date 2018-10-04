@@ -2,21 +2,20 @@
 #include "core_include/rect.h"
 #include "core_include/cmd_target.h"
 #include "core_include/wnd.h"
-#include "core_include/resource_type.h"
+#include "core_include/resource.h"
 #include "core_include/bitmap.h"
 #include "core_include/word.h"
 #include "core_include/surface.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include "../gui_include/button.h"
 #include "../gui_include/dialog.h"
-#include "../gui_include/shape_resource.h"
 
 void c_button::pre_create_wnd()
 {
 	m_style |= GLT_ATTR_VISIBLE | GLT_ATTR_FOCUS | ALIGN_HCENTER | ALIGN_VCENTER;
-	m_font_type = FONT_ENG_SMB_AA();
-	m_font_color = GLT_RGB(255,255,255);
-	m_bg_color = GLT_RGB(36,36,36);
+	m_font_type = c_my_resource::get_font(FONT_ENG_SMB_AA);
+	m_font_color = c_my_resource::get_color(CTRL_FORE_GROUND);
+	m_bg_color = c_my_resource::get_color(CTRL_BACK_GROUND);
 }
 
 void c_button::on_focus()
@@ -56,16 +55,15 @@ void c_button::on_paint()
 
 	switch(m_status)
 	{
-	case STATUS_PUSHED:
-		if (m_bitmap_pushed)
+	case STATUS_NORMAL:
+		if (m_bitmap_normal)
 		{
-			c_bitmap::draw_bitmap_in_rect(m_surface, m_z_order, m_bitmap_pushed, rect, m_style);
+			c_bitmap::draw_bitmap_in_rect(m_surface, m_z_order, m_bitmap_normal, rect, m_style);
 		}
 		else
 		{
-			draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_btn_push);
+			fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(BUTTON_NORMAL));
 		}
-		m_font_color = GLT_RGB(255,255,255);
 		break;
 	case STATUS_FOCUSED:
 		if (m_bitmap_focus)
@@ -74,39 +72,26 @@ void c_button::on_paint()
 		}
 		else
 		{
-			draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_btn_focus);
+			fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(BUTTON_FOCUS));
 		}
-		m_font_color = GLT_RGB(255,255,255);
 		break;
-	case STATUS_NORMAL:
-		if (m_bitmap)
+	case STATUS_PUSHED:
+		if (m_bitmap_pushed)
 		{
-			c_bitmap::draw_bitmap_in_rect(m_surface, m_z_order, m_bitmap, rect, m_style);
+			c_bitmap::draw_bitmap_in_rect(m_surface, m_z_order, m_bitmap_pushed, rect, m_style);
 		}
 		else
 		{
-			draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_btn_normal);
+			fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(BUTTON_PUSH));
 		}
-		m_font_color = GLT_RGB(255,255,255);
-		break;
-	case STATUS_DISABLED:
-		if (m_bitmap_disable)
-		{
-			c_bitmap::draw_bitmap_in_rect(m_surface, m_z_order, m_bitmap_disable, rect, m_style);
-		}
-		else
-		{
-			draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_btn_disable);
-		}
-		m_font_color = GLT_RGB(70,73,76);
 		break;
 	default:
 		ASSERT(FALSE);
 		break;
 	}
 
-	if (m_str_id)
+	if (m_str)
 	{
-		c_word::draw_string_in_rect(m_surface, m_z_order, m_str_id, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_style);
+		c_word::draw_string_in_rect(m_surface, m_z_order, m_str, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_style);
 	}
 }

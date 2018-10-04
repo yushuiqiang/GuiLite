@@ -1,5 +1,5 @@
-#ifndef XT_GUI_WND_H
-#define XT_GUI_WND_H
+#ifndef _GUI_WND_H_
+#define _GUI_WND_H_
 
 //Window attribution
 #define GLT_WIN_SHOW			0x00000001
@@ -9,10 +9,8 @@
 #define GLT_ATTR_DISABLED		0x40000000L
 #define GLT_ATTR_FOCUS			0x20000000L
 
-typedef struct struct_gui_bitmap GUI_BITMAP;
-typedef struct struct_gui_font	GUI_FONT;
-typedef struct struct_custom_shape	CUSTOM_SHAPE;
-typedef const GUI_FONT* (*PTR_FUNC_GET_FONT)();
+typedef struct struct_font_info		FONT_INFO;
+typedef struct struct_color_rect	COLOR_RECT;
 
 class c_wnd;
 class c_surface;
@@ -29,7 +27,7 @@ typedef struct struct_wnd_tree
 {
 	c_wnd*					p_wnd;
 	unsigned int			resource_id;
-	unsigned int			caption_id;
+	char*					str;
 	short   				x;
 	short   				y;
 	short   				width;
@@ -44,9 +42,9 @@ public:
 	c_wnd();
 	virtual ~c_wnd();
 	virtual const char* get_class_name() const { return "c_wnd"; }
-	virtual int connect(c_wnd *parent, unsigned short resource_id, unsigned short str_id,
+	virtual int connect(c_wnd *parent, unsigned short resource_id, char* str,
 		short x, short y, short width, short height, WND_TREE* p_child_tree = NULL);
-	virtual c_wnd* connect_clone(c_wnd *parent, unsigned short resource_id, unsigned short str_id,
+	virtual c_wnd* connect_clone(c_wnd *parent, unsigned short resource_id, char* str,
 		short x, short y, short width, short height, WND_TREE* p_child_tree = NULL);
 	void disconnect();
 	virtual c_wnd* clone() = 0;
@@ -60,13 +58,8 @@ public:
 	unsigned int get_style() const { return m_style; }
 	virtual void modify_style(unsigned int add_style = 0, unsigned int remove_style = 0);
 
-	void set_str_id(unsigned short str_id) { m_str_id = str_id; }
-	unsigned short get_str_id() const { return m_str_id; }
-
-	void set_bitmap(const GUI_BITMAP *pBitmap) { m_bitmap = pBitmap; }
-	void set_focus_bitmap(const GUI_BITMAP *pBitmap) { m_bitmap_focus = pBitmap; }
-	void set_pushed_bitmap(const GUI_BITMAP *pBitmap) { m_bitmap_pushed = pBitmap; }
-	void set_disable_bitmap(const GUI_BITMAP *pBitmap) { m_bitmap_disable = pBitmap; }
+	void set_str(char* str) { m_str = str; }
+	char* get_str_id() const { return m_str; }
 
 	bool is_visible() const { return m_is_visible_now; }
 	bool is_foreground();
@@ -81,8 +74,8 @@ public:
 	unsigned int get_font_color() { return m_font_color; }
 	void set_bg_color(unsigned int color) { m_bg_color = color; }
 	unsigned int get_bg_color() { return m_bg_color; }
-	void set_font_type(const GUI_FONT *font_type) { m_font_type = font_type; }
-	const GUI_FONT* get_font_type() { return m_font_type; }
+	void set_font_type(const FONT_INFO *font_type) { m_font_type = font_type; }
+	const FONT_INFO* get_font_type() { return m_font_type; }
 
 	void set_wnd_pos(short x, short y, short width, short height);
 	void get_wnd_rect(c_rect &rect) const;
@@ -136,7 +129,8 @@ protected:
 	void draw_rect(c_rect rect, unsigned int rgb);
 	void fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb);
 	void fill_rect(c_rect rect, unsigned int rgb);
-	void draw_custom_shape(int l, int t, int r, int b, unsigned int color, const CUSTOM_SHAPE pRgn[]);
+	void fill_rect_ex(int l, int t, int r, int b, unsigned int color, const COLOR_RECT* extend_rects);
+	void fill_rect_ex(c_rect rect, unsigned int color, const COLOR_RECT* extend_rects);
 protected:
 	WND_STATUS		m_status;
 	unsigned int	m_style;
@@ -145,13 +139,9 @@ protected:
 	c_wnd*			m_top_child;
 	c_wnd*			m_prev_sibling;
 	c_wnd*			m_next_sibling;
-	unsigned short	m_str_id;
+	char*			m_str;
 
-	const GUI_BITMAP*	m_bitmap;
-	const GUI_BITMAP*	m_bitmap_focus;
-	const GUI_BITMAP*	m_bitmap_pushed;
-	const GUI_BITMAP*	m_bitmap_disable;
-	const GUI_FONT*		m_font_type;
+	const FONT_INFO*		m_font_type;
 	unsigned int		m_font_color;
 	unsigned int		m_bg_color;
 

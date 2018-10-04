@@ -1,12 +1,12 @@
 #include "core_include/api.h"
 #include "core_include/rect.h"
-#include "core_include/resource_type.h"
+#include "core_include/resource.h"
 #include "core_include/word.h"
 #include "core_include/cmd_target.h"
 #include "core_include/wnd.h"
 #include "core_include/surface.h"
 #include "../gui_include/button.h"
-#include "../gui_include/shape_resource.h"
+#include "../gui_include/my_resource.h"
 #include "../gui_include/keyboard.h"
 #include <string.h>
 
@@ -145,16 +145,16 @@ ON_GLT_BN_CLICKED('\n', c_keyboard::on_enter_clicked)
 ON_GLT_BN_CLICKED(0x1B, c_keyboard::on_esc_clicked)
 GLT_END_MESSAGE_MAP()
 
-int c_keyboard::create(c_wnd *parent, unsigned short resource_id, unsigned short str_id,
+int c_keyboard::create(c_wnd *parent, unsigned short resource_id, char* str,
 	short x, short y, short width, short height, WND_TREE* p_child_tree)
 {
 	if (m_style == STYLE_ALL_BOARD)
 	{
-		return c_wnd::connect(parent, resource_id, str_id, (0 - x), (height - y - KEYBOARD_HEIGHT), KEYBOARD_WIDTH, KEYBOARD_HEIGHT, g_key_board_children);
+		return c_wnd::connect(parent, resource_id, str, (0 - x), (height - y - KEYBOARD_HEIGHT), KEYBOARD_WIDTH, KEYBOARD_HEIGHT, g_key_board_children);
 	}
 	else if(m_style == STYLE_NUM_BOARD)
 	{
-		return c_wnd::connect(parent, resource_id, str_id, x, y, NUM_BOARD_WIDTH, NUM_BOARD_HEIGHT, g_number_board_children);
+		return c_wnd::connect(parent, resource_id, str, x, y, NUM_BOARD_WIDTH, NUM_BOARD_HEIGHT, g_number_board_children);
 	}
 	else
 	{
@@ -230,14 +230,14 @@ void c_keyboard_button::on_paint()
 	get_screen_rect(rect);
 	switch(m_status)
 	{
-	case STATUS_PUSHED:
-		draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_keyboard_btn_push);
+	case STATUS_NORMAL:
+		fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(KEY_BUTTON_NORMAL));
 		break;
 	case STATUS_FOCUSED:
-		draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_btn_focus);
+		fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(BUTTON_FOCUS));
 		break;
-	case STATUS_NORMAL:
-		draw_custom_shape(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_parent->get_bg_color(), g_shape_keyboard_btn_normal);
+	case STATUS_PUSHED:
+		fill_rect_ex(rect, m_bg_color, c_my_resource::get_shape(KEY_BUTTON_PUSH));
 		break;
 	default:
 		ASSERT(FALSE);

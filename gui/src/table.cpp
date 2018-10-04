@@ -1,11 +1,11 @@
 #include "core_include/api.h"
-#include "core_include/resource_type.h"
+#include "core_include/resource.h"
 #include "core_include/rect.h"
 #include "core_include/word.h"
 #include "core_include/surface.h"
 #include "core_include/cmd_target.h"
 #include "core_include/wnd.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include "../gui_include/table.h"
 
 
@@ -16,13 +16,7 @@ void c_table::pre_create_wnd()
 
 int c_table::set_item(int row, int col, char* str, unsigned int with_bg_color)
 {
-	draw_item( row, col,str, with_bg_color);
-	return 1;
-}
-
-int c_table::set_item(int row, int col, unsigned int str_id, unsigned int with_bg_color)
-{
-	draw_item(row, col, str_id, with_bg_color);
+	draw_item( row, col, str, with_bg_color);
 	return 1;
 }
 
@@ -42,11 +36,6 @@ void c_table::draw_item(int row, int col, const char* str, unsigned int with_bg_
 	fill_rect(rect.m_left+1, rect.m_top+1, rect.m_right-1, rect.m_bottom-1, back_color);
 
 	c_word::draw_string_in_rect(m_surface, m_z_order, str, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_align_type);
-}
-
-void c_table::draw_item(int row, int col, unsigned int str_id, unsigned int with_bg_color)
-{
-	draw_item(row, col, c_word::get_string(str_id), with_bg_color);
 }
 
 void c_table::set_row_height(unsigned int height)
