@@ -1,18 +1,14 @@
 # GuiLite - 简洁出奇迹
-- GuiLite（超轻量UI框架）是6千行代码的**全平台UI框架**，可以完美运行在iOS，Android，Windows（包含VR），Mac，单片机和**市面所有的 ARM Linux物联网终端设备**上。
+- GuiLite（超轻量UI框架）是5千行代码的**全平台UI框架**，可以完美运行在iOS，Android，Windows（包含VR），Mac，单片机和**市面所有的 ARM Linux物联网终端设备**上。
 - GuiLite可以嵌入在iOS、Android、MFC、QT等其他UI系统中，让你的界面集百家之长，又不失个性。
 - GuiLite鼓励混合编程，开发者可以用GuiLite接管UI部分，用Swift，Java，Go，C#，Python发开业务部分。
 
 相比QT、MFC，GuiLite不预设开发者的使用场景，不在具体功能上，大包大揽；用框架的简洁，换取开发的自由；GuiLite在图形绘制上面，力图一步到位，运行效率感人。
 
-## 新功能：万国语和墙纸
-墙纸：
-![unicode](doc/wallpaper.jpg)
+## 新功能：入门demo -- HelloGuiLite
+![HelloGuiLite](doc/HelloGuiLite.gif)
 
-万国语(unicode)：
-![unicode](doc/unicode.jpg)
-
-[如何制作多种文字/位图资源?](https://github.com/idea4good/GuiLiteToolkit)
+**信不信由你，代码只有100+行！**[查阅代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp)
 
 ## 卓越的跨平台能力
 在Mac, iOS下的运行效果:
@@ -23,9 +19,18 @@
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-在Windows混合现实下的运行效果及开发者QQ群:
+在Windows混合现实下的运行效果:
 
-![Win MR](doc/WinMR.gif) ![QQ group: 527251257](doc/qq.group.jpg)
+![Win MR](doc/WinMR.gif)
+
+## 万国语和墙纸
+墙纸：
+![unicode](doc/wallpaper.jpg)
+
+万国语(unicode)：
+![unicode](doc/unicode.jpg)
+
+[如何制作多种文字/位图资源?](https://github.com/idea4good/GuiLiteToolkit)
 
 ## “换肤”功能
 ![multi-theme](doc/multi-theme.png)
@@ -65,9 +70,16 @@
 ## 视频链接:
 [GuiLite简介](https://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
 
-[GuiLite办公室](https://v.youku.com/v_show/id_XMzYxNTE3MTI0MA)
+[3D GuiLite](https://v.youku.com/v_show/id_XMzYxNTE3MTI0MA)
+
 ## 实例代码链接
 [GuiLiteSamples](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## GitHub链接
 [GitHub链接](https://github.com/idea4good/GuiLite)
+
+## 致谢
+### 感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎新的大神/小白加入我们。
+![QQ group: 527251257](qq.group.jpg)
+### 感谢来自码云用户的捐赠，您的每一分钱都会用来帮助急需帮助的中国儿童或家庭。
+
