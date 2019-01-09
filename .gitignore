@@ -38,3 +38,8 @@ Makefile
 
 libcore.a
 libgui.a
+
+# Keil
+GuiLite.uvguix.*
+GuiLite.uvoptx
+Objects
