@@ -161,14 +161,16 @@ int c_word::draw_single_char(c_surface* surface, int z_order, unsigned int utf8_
 		error_color = GL_RGB(255, 0, 0);
 	}
 	
-	//lattice/font not found, draw mosaic
+	//lattice/font not found, draw "X"
 	int len = 16;
 	for (int y_ = 0; y_ < len; y_++)
 	{
 		for (int x_ = 0; x_ < len; x_++)
 		{
-			((y_ % 4) == 0) ? surface->draw_pixel((x + x_), (y + y_), 0, z_order) :
-							surface->draw_pixel((x + x_), (y + y_), error_color, z_order);
+			int diff = (x_ - y_);
+			int sum = (x_ + y_);
+			(diff == 0 || diff == -1 || diff == 1 || sum == len || sum == (len - 1) || sum == (len + 1)) ?
+			surface->draw_pixel((x + x_), (y + y_), error_color, z_order) : surface->draw_pixel((x + x_), (y + y_), 0, z_order);
 		}
 	}
 	return len;
