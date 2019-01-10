@@ -594,7 +594,6 @@ void c_surface_mcu::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, 
 	{
 		return m_gfx_op->fill_rect(x0, y0, x1, y1, rgb);
 	}
-	
 	for (; y0 <= y1; y0++)
 	{
 		draw_hline(x0, x1, y0, rgb, z_order);

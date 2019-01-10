@@ -258,16 +258,18 @@ void c_wave_ctrl::restore_background()
 	register int width = rect.Width();
 	register int top = rect.m_top;
 	register int left = rect.m_left;
-	unsigned int* p_fb = m_bg_fb;
-
 	for (int y_pos = (m_wave_top - 1); y_pos <= (m_wave_bottom + 1); y_pos++)
 	{
-		draw_pixel(x, y_pos, p_fb[(y_pos - top) * width + (x - left)]);
+		(m_bg_fb) ? draw_pixel(x, y_pos, m_bg_fb[(y_pos - top) * width + (x - left)]) : draw_pixel(x, y_pos, 0);
 	}
 }
 
 void c_wave_ctrl::save_background()
 {
+	if (!m_bg_fb)
+	{
+		return;
+	}
 	c_rect rect;
 	get_screen_rect(rect);
 	
