@@ -15,10 +15,7 @@ void _assert(const char* file, int line)
 	{
 		do_assert(file, line);
 	}
-	else
-	{
-		printf("assert@ file:%s, line:%d\n", file, line);
-	} 
+	while(1);
 }
 
 void log_out(const char* log)
@@ -26,11 +23,6 @@ void log_out(const char* log)
 	if (do_log_out)
 	{
 		do_log_out(log);
-	}
-	else
-	{
-		printf(log);
-		fflush(stdout);
 	}
 }
 

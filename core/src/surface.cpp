@@ -614,3 +614,9 @@ void c_surface_mcu::set_pixel(int x, int y, unsigned int rgb)
 {//Not support
 	ASSERT(FALSE);
 }
+
+void c_surface_mcu::set_surface(void* wnd_root, Z_ORDER_LEVEL max_z_order)
+{
+	m_usr = wnd_root;
+	m_max_zorder = max_z_order;
+}
