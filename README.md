@@ -19,8 +19,9 @@
 
 ## 新功能：支持单片机 -- HelloMCU
 ![HelloMCU](doc/HelloMCU.gif)
-
-**信不信由你，代码只有100+行！**[查阅代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloMCU/UIcode/UIcode.cpp)
+- 硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
+- 软件配置：无操作系统 + GuiLite
+- **信不信由你，代码只有100+行！**[查阅代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloMCU/UIcode/UIcode.cpp)
 
 ## 功能介绍
 ### 卓越的跨平台能力
@@ -37,13 +38,13 @@
 ![Win MR](doc/WinMR.gif)
 
 ### 万国语和墙纸
-墙纸：
+- 墙纸：
 ![unicode](doc/wallpaper.jpg)
 
-万国语(unicode)：
+- 万国语(unicode)：
 ![unicode](doc/unicode.jpg)
 
-[如何制作多种文字/位图资源?](https://github.com/idea4good/GuiLiteToolkit)
+- [如何制作多种文字/位图资源?](https://github.com/idea4good/GuiLiteToolkit)
 
 ### “换肤”功能
 ![multi-theme](doc/multi-theme.png)
@@ -51,11 +52,11 @@
 [如何“换肤”？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/SampleCode/source/resource/resource.cpp)
 
 ### 自我监控
-**上报“编译/运行”情况至“云端”：**
+- **上报“编译/运行”情况至“云端”：**
 
 ![BuildInfo](doc/BuildInfo.png)
 
-**同步“本地数据”至“云端”：**
+- **同步“本地数据”至“云端”：**
 
 ![DataOnCloud](doc/data_on_cloud.png)
 
