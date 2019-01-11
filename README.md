@@ -22,6 +22,7 @@
 - 硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 软件配置：无操作系统 + GuiLite
 - **信不信由你，代码只有100+行！**[查阅代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloMCU/UIcode/UIcode.cpp)
+- [移植方法 -- 适用于任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/doc/HowToPorting.jpg)
 
 ## 功能介绍
 ### 卓越的跨平台能力
