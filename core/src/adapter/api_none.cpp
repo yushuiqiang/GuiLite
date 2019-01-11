@@ -64,9 +64,10 @@ void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) 
     log_out("Not support now");
 }
 
+extern "C" void delay_ms(unsigned short nms);
 void thread_sleep(unsigned int milli_seconds)
-{
-    log_out("Not support now");
+{//MCU alway implemnet driver code in APP.
+		delay_ms(milli_seconds);
 }
 
 int build_bmp(const char *filename, unsigned int width, unsigned int height, unsigned char *data)
