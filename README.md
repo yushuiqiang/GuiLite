@@ -83,6 +83,7 @@ GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何�
 ## 视频链接:
 - [GuiLite简介](https://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
 - [3D GuiLite](https://v.youku.com/v_show/id_XMzYxNTE3MTI0MA)
+- [GuiLite + 单片机](https://v.youku.com/v_show/id_XNDAwNzM5MTM3Ng)
 
 ## GitHub链接
 [GitHub链接](https://github.com/idea4good/GuiLite)
