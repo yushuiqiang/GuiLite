@@ -169,17 +169,13 @@ void c_wave_ctrl::refresh_wave(unsigned char frame)
 		CORRECT(y_max, m_wave_bottom, m_wave_top);
 		CORRECT(mid, m_wave_bottom, m_wave_top);
 
+		if (m_wave_cursor > m_wave_right)
+		{
+			m_wave_cursor = m_wave_left;
+		}
 		draw_smooth_vline(y_min, y_max, mid, m_wave_color);
 		restore_background();
-		//ring the wave
-		if ((m_wave_cursor + 1) > m_wave_right)
-		{
-			m_wave_cursor = m_wave_left ;
-		}
-		else
-		{
-			m_wave_cursor++;
-		}
+		m_wave_cursor++;
 	}
 }
 
