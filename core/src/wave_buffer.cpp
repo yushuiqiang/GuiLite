@@ -57,8 +57,7 @@ int c_wave_buffer::read_wave_data_by_frame(short &max, short &min, short len, un
 		ASSERT(FALSE);
 	}
 
-	if(((m_refresh_sqence & 0xff) == (seq & 0xff)) &&
-			((m_refresh_sqence & 0xffff0000) != (seq & 0xffff0000)))
+	if(((m_refresh_sqence & 0xff) == (seq & 0xff)))
 	{
 		max = m_fb_max[offset];
 		min = m_fb_min[offset];

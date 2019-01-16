@@ -16,8 +16,8 @@
 }while(0)
 
 #define WAVE_CURSOR_WIDTH		8
-#define DATA_THRESHOLD			4
 #define	WAVE_LINE_WIDTH			1
+#define	WAVE_MARGIN				5
 
 c_wave_ctrl::c_wave_ctrl()
 {
@@ -43,10 +43,10 @@ void c_wave_ctrl::on_init_children()
 	c_rect rect;
 	get_screen_rect(rect);
 
-	m_wave_left 	= rect.m_left + 22;
-	m_wave_right	= rect.m_right;
-	m_wave_top		= rect.m_top + 2;
-	m_wave_bottom	= rect.m_bottom - 4;
+	m_wave_left 	= rect.m_left + WAVE_MARGIN;
+	m_wave_right	= rect.m_right - WAVE_MARGIN;
+	m_wave_top		= rect.m_top + WAVE_MARGIN;
+	m_wave_bottom	= rect.m_bottom - WAVE_MARGIN;
 	m_wave_cursor	= m_wave_left;
 
 	m_bg_fb = (unsigned int*)calloc(rect.Width() * rect.Height(), 4);
@@ -112,8 +112,7 @@ bool c_wave_ctrl::is_data_enough()
 		ASSERT(FALSE);
 		return false;
 	}
-	return ((m_frame_len_map[m_frame_len_map_index] * m_wave_speed - m_wave->get_cnt()) <
-			DATA_THRESHOLD)?true:false;
+	return (m_wave->get_cnt() - m_frame_len_map[m_frame_len_map_index] * m_wave_speed);
 }
 
 void c_wave_ctrl::refresh_wave(unsigned char frame)
@@ -124,14 +123,14 @@ void c_wave_ctrl::refresh_wave(unsigned char frame)
 		return;
 	}
 
-	short max, min, mid, speed;
-	speed = m_wave_speed;
-	while(--speed >= 0)
+	short max, min, mid, offset;
+	offset = m_wave_speed;
+	while(--offset >= 0)
 	{
 		//get wave value
 		mid = m_wave->read_wave_data_by_frame(max, min,
 							m_frame_len_map[m_frame_len_map_index++],
-							(frame | (speed << 8) | (((unsigned long)this & 0xffff) << 16)));
+							(frame | (offset << 8)));
 		m_frame_len_map_index %= sizeof(m_frame_len_map);
 		//gain
 		switch(m_gain)
