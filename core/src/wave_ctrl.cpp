@@ -27,11 +27,9 @@ c_wave_ctrl::c_wave_ctrl()
 	m_wave_name = m_wave_unit = 0;
 	m_max_data = 500;
 	m_min_data = 0;
-	m_pivot_data  = 250;
 	m_wave_speed = 4;
 	m_wave_data_rate = 0;
 	m_wave_refresh_rate = 1000;
-	m_gain = ZOOM_100;
 	m_frame_len_map_index = 0;
 
 	m_wave_name_color  = m_wave_unit_color = m_wave_color = GL_RGB(255,0,0);
@@ -52,16 +50,10 @@ void c_wave_ctrl::on_init_children()
 	m_bg_fb = (unsigned int*)calloc(rect.Width() * rect.Height(), 4);
 }
 
-void c_wave_ctrl::set_max_min_base(short max_data, short min_data, short data_base)
+void c_wave_ctrl::set_max_min(short max_data, short min_data)
 {
 	m_max_data = max_data;
 	m_min_data = min_data;
-	m_pivot_data = data_base;
-}
-
-void c_wave_ctrl::set_wave_gain(E_WAVE_GAIN gain)
-{
-	m_gain = gain;
 }
 
 void c_wave_ctrl::set_wave_in_out_rate(unsigned int data_rate, unsigned int refresh_rate)
@@ -132,36 +124,15 @@ void c_wave_ctrl::refresh_wave(unsigned char frame)
 							m_frame_len_map[m_frame_len_map_index++],
 							(frame | (offset << 8)));
 		m_frame_len_map_index %= sizeof(m_frame_len_map);
-		//gain
-		switch(m_gain)
-		{
-		case ZOOM_025:
-			mid = ((mid - m_pivot_data) >> 2) + m_pivot_data;
-			max = ((max - m_pivot_data) >> 2) + m_pivot_data;
-			min = ((min - m_pivot_data) >> 2) + m_pivot_data;
-			break;
-		case ZOOM_050:
-			mid = ((mid - m_pivot_data) >> 1) + m_pivot_data;
-			max = ((max - m_pivot_data) >> 1) + m_pivot_data;
-			min = ((min - m_pivot_data) >> 1) + m_pivot_data;
-			break;
-		case ZOOM_200:
-			mid = ((mid - m_pivot_data) << 1) + m_pivot_data;
-			max = ((max - m_pivot_data) << 1) + m_pivot_data;
-			min = ((min - m_pivot_data) << 1) + m_pivot_data;
-			break;
-		case ZOOM_100:
-		default:
-			break;
-		}
+		
 		//map to wave ctrl
 		int y_min,y_max;
 		if(m_max_data == m_min_data)
 		{
 			ASSERT(FALSE);
 		}
-		y_max = WAVE_LINE_WIDTH + m_wave_bottom - (m_wave_bottom - m_wave_top)*(min - m_min_data)/(m_max_data - m_min_data);
-		y_min = (-WAVE_LINE_WIDTH) + m_wave_bottom - (m_wave_bottom - m_wave_top)*(max - m_min_data)/(m_max_data - m_min_data);
+		y_max = m_wave_bottom + WAVE_LINE_WIDTH - (m_wave_bottom - m_wave_top)*(min - m_min_data)/(m_max_data - m_min_data);
+		y_min = m_wave_bottom - WAVE_LINE_WIDTH - (m_wave_bottom - m_wave_top)*(max - m_min_data)/(m_max_data - m_min_data);
 		mid = m_wave_bottom - (m_wave_bottom - m_wave_top)*(mid - m_min_data)/(m_max_data - m_min_data);
 
 		CORRECT(y_min, m_wave_bottom, m_wave_top);
