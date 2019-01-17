@@ -115,14 +115,13 @@ void c_wave_ctrl::refresh_wave(unsigned char frame)
 		return;
 	}
 
-	short max, min, mid, offset;
-	offset = m_wave_speed;
-	while(--offset >= 0)
+	short max, min, mid;
+	for(short offset = 0; offset < m_wave_speed; offset++)
 	{
 		//get wave value
 		mid = m_wave->read_wave_data_by_frame(max, min,
 							m_frame_len_map[m_frame_len_map_index++],
-							(frame | (offset << 8)));
+							frame, offset);
 		m_frame_len_map_index %= sizeof(m_frame_len_map);
 		
 		//map to wave ctrl
