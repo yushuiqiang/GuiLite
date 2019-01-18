@@ -17,12 +17,12 @@
 - 我们不推荐开发者全盘使用GuiLite；鼓励开发者在吃透代码后，根据自身业务特点，修改出更加丰富、个性的界面；或者发展出适合自己的UI框架。
 - 为了聚焦UI核心原理，GuiLite会一直保持单片机的代码体量。
 
-## 新功能：支持单片机 -- HelloMCU
-![HelloMCU](doc/HelloMCU.gif)
+## 新功能：如何使用“波形控件”及在单片机上运行 -- HelloWave
+![HelloWave](doc/HelloWave.gif)
 - 硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 软件配置：无操作系统 + GuiLite
-- **信不信由你，代码只有100+行！**[查阅代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloMCU/UIcode/UIcode.cpp)
-- [移植方法 -- 适用于任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/doc/HowToPorting.jpg)
+- Hello Wave 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发，及如何进行单片机移植。
+- [移植方法 -- 适用于任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md#How-to-port-on-any-MCU-)
 
 ## 功能介绍
 ### 卓越的跨平台能力
@@ -34,9 +34,9 @@
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-在Windows混合现实下的运行效果:
+在Windows混合现实，及单片机下的运行效果:
 
-![Win MR](doc/WinMR.gif)
+![Win MR](doc/WinMR.gif) ![MCU](doc/HelloWave.gif)
 
 ### 万国语和墙纸
 - 墙纸：
