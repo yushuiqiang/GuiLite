@@ -36,7 +36,7 @@
 
 在Windows混合现实，及单片机下的运行效果:
 
-![Win MR](doc/WinMR.gif) ![MCU](doc/HelloWave.gif)
+![Win MR](doc/WinMR.gif) ![MCU](doc/MCU.gif)
 
 ### 万国语和墙纸
 - 墙纸：
