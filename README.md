@@ -2,6 +2,7 @@
 - [功能介绍](#功能介绍)
 - [实例程序](#实例程序)
 - [开发文档](#开发文档)
+- [学习方法](#学习方法)
 - [视频链接](#视频链接)
 - [致谢](#致谢)
 ***
@@ -22,7 +23,7 @@
 - 硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 软件配置：无操作系统 + GuiLite
 - Hello Wave 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发，及如何进行单片机移植。
-- [移植方法 -- 适用于任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md#How-to-port-on-any-MCU-)
+- [1分钟“无痛”移植到任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md#How-to-port-on-any-MCU-)
 - 该实例亦可支持Windows和Linux平台
 
 ## 功能介绍
@@ -75,12 +76,21 @@ GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何�
 | HelloSlide | Windows, Linux | 滑屏界面的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/README.md) | 中级 |
 | HelloWave | Windows, Linux, STM32F103, STM32F429 | 波形控件的应用，及单片机移植办法 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md) | 中级 |
 | HostMonitor | iOS, Mac, Android, Windows, Linux | 创建复杂界面，扩展自定义控件，适配全平台 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/README.md) | 高级 |
+
 ## 开发文档
 - [如何编译?](doc/HowToBuild.md)
 - [设计原理](doc/CodeWalkthrough-cn.md)
 - [UML示意图](doc/UML.md)
 - [如何布局UI?](doc/HowLayoutWork.md)
 - [如何传递消息?](doc/HowMessageWork.md)
+
+## 学习方法
+1. **外围** - 成功编译GuiLite库
+2. **前戏** - 成功运行HelloXXX实例程序
+3. **交流** - 研读/修改100+行的`HelloXXX/UIcode/UIcode.cpp`源代码
+4. **深交** - 研读`gui`目录下的代码
+5. **攻核** - 研读`core`目录下的代码
+6. **分家** - 丰富，扩展自己的UI功能
 
 ## 视频链接:
 - [GuiLite简介](https://v.youku.com/v_show/id_XMzA5NTMzMTYyOA)
