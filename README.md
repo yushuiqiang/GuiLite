@@ -19,11 +19,12 @@
 - 我们不推荐开发者全盘使用GuiLite；鼓励开发者在吃透代码后，根据自身业务特点，修改出更加丰富、个性的界面；或者发展出适合自己的UI框架。
 - 为了聚焦UI核心原理，GuiLite会一直保持单片机的代码体量。
 
-## 新功能：在单片机上运行“波形控件”实例 -- HelloWave
-![HelloWave](doc/HelloWave.gif)
+## 新功能：在单片机上运行“波形/粒子”效果 -- HelloWave + HelloParticle
+![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)
 - 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
-- Hello Wave 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发，及如何进行单片机移植。
+- Hello Wave 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行“波形”效果的开发。
+- Hello Particle 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloParticle/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行“粒子”效果的开发。
 - [1分钟“无痛”移植到任意单片机平台？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md#How-to-port-on-any-MCU-)
 - 该实例亦可支持Windows和Linux平台
 
