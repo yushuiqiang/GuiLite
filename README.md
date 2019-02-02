@@ -73,7 +73,7 @@ GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何�
 | HelloAnimation | Windows, Linux | 动画的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/README.md) | 初级 |
 | HelloParticle | Windows, Linux, STM32F103, STM32F429 | 粒子效果的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloParticle/README.md) | 初级 |
 | HelloSlide | Windows, Linux | 滑屏界面的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/README.md) | 中级 |
-| HelloWave | Windows, Linux, STM32F103, STM32F429 | 波形控件的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md) | 中级 |
+| HelloWave | Windows, Linux, STM32F103, STM32F429 | 波形控件的应用，及单片机移植办法 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWave/README.md) | 中级 |
 | HostMonitor | iOS, Mac, Android, Windows, Linux | 创建复杂界面，扩展自定义控件，适配全平台 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/README.md) | 高级 |
 
 ## 开发文档
