@@ -72,7 +72,7 @@ GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何�
 - [设计原理](doc/CodeWalkthrough-cn.md)
 - [如何布局UI?](doc/HowLayoutWork.md)
 - [如何制作多种文字/位图资源?](https://github.com/idea4good/GuiLiteToolkit)
-- [如何“换肤”？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/SampleCode/source/resource/resource.cpp)
+- [如何“换肤”？](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/UIcode/source/resource/resource.cpp)
 - [如何传递消息?](doc/HowMessageWork.md)
 - [核心UML示意图](doc/UML.md)
 
