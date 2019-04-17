@@ -19,7 +19,7 @@
 ## 🔥新功能：支持非触摸屏（硬按键“导航”）
 ![HelloNavigation](doc/HelloNavigation.gif)
 
-Hello Navigation 仅有[100+行代码](https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloNavigation/UIcode/UIcode.cpp)，用于向开发者展示：如何在非触摸屏场景下，使用硬按键进行：“移动焦点”和“点击”操作。
+Hello Navigation 仅有[100+行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloNavigation/UIcode/UIcode.cpp)，用于向开发者展示：如何在非触摸屏场景下，使用硬按键进行：“移动焦点”和“点击”操作。
 
 ## 功能介绍
 ### 卓越的跨平台能力
