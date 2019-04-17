@@ -16,7 +16,7 @@
 - ⚙️希望GuiLite小到足够帮助大家掌握UI工作原理，从而摆脱UI框架的束缚，构建自己独一无二的UI
 - 👑任何UI框架都不为你我而生，你才是自己真正的主人
 
-## 🔥新功能：硬按键“导航”
+## 🔥新功能：支持非触摸屏（硬按键“导航”）
 ![HelloNavigation](doc/HelloNavigation.gif)
 
 Hello Navigation 仅有[100+行代码](https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloNavigation/UIcode/UIcode.cpp)，用于向开发者展示：如何使用硬按键进行：“移动焦点”和“点击”操作。
