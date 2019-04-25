@@ -17,8 +17,8 @@
 - 👑任何UI框架都不为你我而生，你才是自己真正的主人
 
 ## 🔥新功能：星空效果
-![Hellostar](doc/Hellostar.gif)
-- Hello Star 仅有[100+行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/Hellostar/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite开发“星空”效果。
+![HelloStar](doc/HelloStar.gif)
+- Hello Star 仅有[100+行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloStar/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite开发“星空”效果。
 - 支持：MCU / Windows / Linux
 
 ## 功能介绍
