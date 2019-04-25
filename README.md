@@ -54,7 +54,7 @@
 ***
 ## 快速上手
 GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何用GuiLite开发App，我们提供了一些实例程序给大家参考。
-- 实例程序的代码在[这里](https://github.com/idea4good/GuiLiteSamples)。
+- 实例程序的代码在[这里](https://gitee.com/idea4good/GuiLiteSamples)。
 - 实例程序的功能说明：
 
 | 实例名称 | 支持的平台 | 功能简介 | 编译方法 | 难度 |
