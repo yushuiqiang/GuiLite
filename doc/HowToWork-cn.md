@@ -62,43 +62,43 @@ frame层:
 该层属于surface层的一个部分；它现实叠加界面元素而存在。
 
 ### 文件注释
-| core 重要程度/文件名称 | 代码简介 |
-| --- | --- |
-| ★★★ wnd.cpp | UI元素的基本类，定义所有的UI元素信息、绘制及管理办法 |
-| ★★ cmd_target.cpp | 映射UI消息及用户自定义的消息 |
-| ★★ display.cpp | 生成显示设备，设定surface的数目，一个surface对应一个滑动页面 |
-| ★★ surface.cpp| 实现像素点的绘制，并对各个图层（layer）进行管理 |
-| bitmap.cpp | 绘制位图，支持16 bits和32 bits |
-| rect.cpp | UI元素的位置信息 |
-| word.cpp | 显示文字 |
-| api_linux.cpp | Linux适配层 |
-| api_win.cpp | Window适配层 |
-| api_unknow.cpp | 无OS或其他OS适配层 |
-| audio_linux.cpp | Linux audio适配层 |
-| audio_win.cpp | Windows audio适配层 |
-| msg_linux.cpp | Dispatch消息的Linux实现 |
-| msg_win.cpp | Dispatch消息的Windows实现 |
-| msg_unknow.cpp | Dispatch消息在无OS或其他OS下的实现 |
+| core 重要程度/文件名称 | 代码简介 | 推荐学习时间 |
+| --- | --- | --- |
+| ★★★ wnd.cpp | UI元素的基本类，定义所有的UI元素信息、绘制及管理办法 | 1.5小时 |
+| ★★ cmd_target.cpp | 映射UI消息及用户自定义的消息 | 0.5小时 |
+| ★★ display.cpp | 生成显示设备，设定surface的数目，一个surface对应一个滑动页面 | 0.5小时 |
+| ★★ surface.cpp| 实现像素点的绘制，并对各个图层（layer）进行管理 | 0.5小时 |
+| word.cpp | 显示文字 | < 1小时 |
+| bitmap.cpp | 绘制位图，支持16 bits和32 bits | < 0.5小时 |
+| rect.cpp | UI元素的位置信息 | < 0.5小时 |
+| api_linux.cpp | Linux适配层 | < 0.5小时 |
+| api_win.cpp | Window适配层 | < 0.5小时 |
+| api_unknow.cpp | 无OS或其他OS适配层 | < 0.5小时 |
+| audio_linux.cpp | Linux audio适配层 | < 0.5小时 |
+| audio_win.cpp | Windows audio适配层 | < 0.5小时 |
+| msg_linux.cpp | 消息管道在Linux上的实现 | < 0.5小时 |
+| msg_win.cpp | 消息管道在Windows上的实现 | < 0.5小时 |
+| msg_unknow.cpp | 消息管道在其他OS（或无OS）上的实现 | < 0.5小时 |
 ***
-| widgets 难度/文件名称 | 代码简介 |
-| --- | --- |
-| label.cpp | 标签控件的绘制 |
-| button.cpp | 按钮控件的绘制及用户点击响应函数 |
-| table.cpp | Table控件的绘制 |
-| dialog.cpp | 对话框的绘制及管理方法 |
-| edit.cpp | Edit控件的绘制及用户点击响应函数 |
-| ★ gesture.cpp | 手势识别方法，包括：鼠标按下，弹起及滑动 |
-| ★ keyboard.cpp | 键盘控件的绘制及用户点击响应函数 |
-| ★★ list_box.cpp | List控件的绘制及用户点击响应函数 |
-| ★★ spinbox.cpp | Spinbox控件的绘制及用户点击响应函数 |
-| ★★★ wave_buffer.cpp | 波形数据的缓冲管理 |
-| ★★★ wave_ctrl.cpp | 实现波形控件 |
+| widgets 难度/文件名称 | 代码简介 | 推荐学习时间 |
+| --- | --- | --- |
+| label.cpp | 标签控件的绘制 | < 0.5小时 |
+| button.cpp | 按钮控件的绘制及用户点击响应函数 | < 0.5小时 |
+| table.cpp | Table控件的绘制 | < 0.5小时 |
+| dialog.cpp | 对话框的绘制及管理方法 | < 0.5小时 |
+| ★ gesture.cpp | 手势识别方法，包括：鼠标按下，弹起及滑动 | 0.5小时 |
+| ★ keyboard.cpp | 键盘控件的绘制及用户点击响应函数 | 0.5小时 |
+| ★★ list_box.cpp | List控件的绘制及用户点击响应函数 | 1.5小时 |
+| ★★ spinbox.cpp | Spinbox控件的绘制及用户点击响应函数 | 1.5小时 |
+| ★★ edit.cpp | Edit控件的绘制及用户点击响应函数 | 1.5小时 |
+| ★★★ wave_buffer.cpp | 波形数据的缓冲管理 | 1.5小时 |
+| ★★★ wave_ctrl.cpp | 实现波形控件 | 1.5小时 |
 
-### 函数接口注释
+### 函数注释
 | 函数名称 | display.cpp 函数接口注释 |
 | --- | --- |
 | c_display | c_display构造函数，初始化显示参数。输入：物理framebuffer指针，物理显示器宽度，物理显示器高度，surface宽度，surface高度，颜色深度，surface个数/滑动页面的个数 |
 | create_surface | 创建surface/滑动页面。输入： 用户ID，图层的个数|
 | merge_surface | 横向组合surface，多用于滑动surface。输入：待组合的surface源1，待组合的surface源2，surface源1的起始点x坐标，surface源2的起始点x坐标，surface源1的起始点y坐标，surface源2的起始点y坐标，横向组合的偏移距离；输出：可能改变当前显示内容 |
-| get_frame_buffer | 获取该display的物理framebuffer指针 |
+| get_updated_fb | 获取该display的物理framebuffer指针 |
 | snap_shot | 生成当前显示的快照，并输出到bmp文件 |
