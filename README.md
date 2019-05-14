@@ -48,7 +48,7 @@
 ### “换肤”功能
 ![multi-theme](doc/multi-theme.png)
 ***
-### 谁动了我的代码？
+### IoT（物联网）功能
 - 上报“编译/运行”情况至“云端”：<br>![BuildInfo](doc/BuildInfo.png)
 - 同步“运行数据”至“云端”：<br>![DataOnCloud](doc/data_on_cloud.png)
 ***
