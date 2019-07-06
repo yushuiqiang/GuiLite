@@ -18,9 +18,9 @@
 - 👑You should be the master of your UI and not be tied to a specific framework.
 
 ## 🔥New feature：3D
-![HelloCloth](doc/HelloCloth.gif)
+![Hello3D](doc/Hello3D.gif)
 
-Hello Cloth has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/UIcode/UIcode.cpp) for beginner, showing you how to build pseudo 3D App with GuiLite. You can run it on Windows, Linux and MCU.
+Hello 3D has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/Hello3D/UIcode/UIcode.cpp) for beginner, showing you how to build pseudo 3D App with GuiLite. You can run it on Windows, Linux and MCU.
 
 ## Features
 ### Cross platform
@@ -66,7 +66,7 @@ GuiLite is only a framework, could not create UI by itself. In order to show how
 | --- | --- | --- | --- | --- |
 | HelloParticle | Windows, Linux, STM32F103, STM32F429 | Show how to develop particle effect | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloParticle/README.md) | ★ |
 | HelloStar | Windows, Linux, STM32F103, STM32F429 | Show how to develop star field effect | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloStar/README.md) | ★ |
-| HelloCloth | Windows, Linux, STM32F103 | Show how to build physics App with GuiLite | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/README.md) | ★★ |
+| Hello3D | Windows, Linux, STM32F103 | Show how to build physics App with GuiLite | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/Hello3D/README.md) | ★★ |
 | HelloGuiLite | Windows, Linux | Show how to Initialize UI, load resource, layout UI | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/README.md) | ★★ |
 | HelloWidgets | Windows, Linux | Show how to use GuiLite widgets | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloWidgets/README.md) | ★★ |
 | HelloMario | Windows, Linux, STM32F103, STM32F429 | Show how to develop multi-layer UI system | [Build](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloMario/README.md) | ★★ |

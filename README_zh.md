@@ -17,9 +17,9 @@
 - 👑任何UI框架都不为你我而生，你才是自己真正的主人
 
 ## 🔥新功能：3D
-![HelloCloth](doc/HelloCloth.gif)
+![Hello3D](doc/Hello3D.gif)
 
-Hello Cloth 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux及单片机平台。
+Hello 3D 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/Hello3D/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux及单片机平台。
 
 ## 功能介绍
 ### 卓越的跨平台能力
@@ -65,7 +65,7 @@ GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何�
 | --- | --- | --- | --- | --- |
 | HelloParticle | Windows, Linux, STM32F103, STM32F429 | 粒子效果的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloParticle/README.md) | ★|
 | HelloStar | Windows, Linux, STM32F103, STM32F429 | 星空效果的应用 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloStar/README.md) | ★|
-| HelloCloth | Windows, Linux, STM32F103 | 3D物理过程的应用 | [Build](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/README.md) | ★★ |
+| Hello3D | Windows, Linux, STM32F103 | 3D物理过程的应用 | [Build](https://gitee.com/idea4good/GuiLiteSamples/blob/master/Hello3D/README.md) | ★★ |
 | HelloGuiLite | Windows, Linux | 初始化GuiLite，加载资源，布局界面元素，按钮响应 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/README.md) | ★★|
 | HelloWidgets | Windows, Linux | 用于演示基本控件的使用方法 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloWidgets/README.md) | ★★|
 | HelloMario | Windows, Linux, STM32F103, STM32F429 | 多图层的UI系统 | [编译/运行](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloMario/README.md) | ★★|
