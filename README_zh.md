@@ -19,7 +19,7 @@
 ## 🔥新功能：3D
 ![HelloCloth](doc/HelloCloth.gif)
 
-Hello Cloth 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux及单片机平台。
+Hello Cloth 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/HelloCloth/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux及单片机平台。
 
 ## 功能介绍
 ### 卓越的跨平台能力
