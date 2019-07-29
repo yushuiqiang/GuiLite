@@ -21,10 +21,11 @@
 - ⚙️We hope GuiLite is small enough to help you understand how UI works.
 - 👑You should be the master of your UI and not be tied to a specific framework.
 
-## 🔥New feature：3D
-![Hello3D-pc](doc/Hello3D-pc.gif)![Hello3D-mcu](doc/Hello3D-mcu.gif)
-
-Hello 3D has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/Hello3D/UIcode/UIcode.cpp) for beginner, showing you how to build pseudo 3D App with GuiLite. You can run it on Windows, Linux and MCU.
+## 🔥New feature：3D tutorial
+![GuiLiteGraphic](doc/GuiLiteGraphic.gif)
+- This a 3D programm which used to show how GuiLite multi-layers work.
+- [Full video](https://www.youtube.com/watch?v=QzZJnU5KmDQ)
+- [Source code](https://github.com/idea4good/GuiLiteWeb/blob/master/Graphic/main.js)
 
 ## Features
 ### Cross platform

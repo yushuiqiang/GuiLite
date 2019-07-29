@@ -20,10 +20,11 @@
 - ⚙️希望GuiLite小到足够帮助大家掌握UI工作原理，从而摆脱UI框架的束缚，构建自己独一无二的UI
 - 👑任何UI框架都不为你我而生，你才是自己真正的主人
 
-## 🔥新功能：3D
-![Hello3D-pc](doc/Hello3D-pc.gif)![Hello3D-mcu](doc/Hello3D-mcu.gif)
-
-Hello 3D 仅有[100多行代码](https://gitee.com/idea4good/GuiLiteSamples/blob/master/Hello3D/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux及单片机平台。
+## 🔥新功能：3D教程
+![GuiLiteGraphic](doc/GuiLiteGraphic.gif)
+- 通过3D程序，解释GuiLite滑动，及多层叠加原理
+- [完整视频](https://v.youku.com/v_show/id_XNDI4ODE1ODcwOA)
+- [Source code](https://github.com/idea4good/GuiLiteWeb/blob/master/Graphic/main.js)
 
 ## 功能介绍
 ### 卓越的跨平台能力
