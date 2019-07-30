@@ -45,22 +45,19 @@
 [GuiLite Previewer](https://github.com/idea4good/GuiLitePreviewer) is a Visual Studio Code extension, could extract GUI information from C++ code and preview GUI at preview page(What you see is what you get)
 ![GuiLitePreviewer](doc/Previewer.gif)
 ***
-### Support Docker Container
-We build GuiLite demo as docker image, you can update/deploy/run the latest GuiLite demo on your device with single command below:
-- `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
-***
-### Easy customization
-![wallpaper](doc/wallpaper.jpg)
+### Gorgeous UI
+![wallpaper](doc/wallpaper.jpg)![Hello3D-pc](doc/Hello3D-pc.gif)
 ***
 ### Multi-language:
 ![unicode](doc/unicode.jpg)
 ***
-### Multi-theme
-![multi-theme](doc/multi-theme.png)
-***
 ### IoT Solution & Code Telemetry
 - Report build activities to cloud:<br>![BuildInfo](doc/BuildInfo.png)
 - Sync running data to cloud:<br>![DataOnCloud](doc/data_on_cloud.png)
+***
+### Support Docker
+We build GuiLite demo as docker image, you can update/deploy/run the latest GuiLite demo on your device with single command below:
+- `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 ***
 ## Start with Demo
 GuiLite is only a framework, could not create UI by itself. In order to show how to build UI App with it, We provide some samples for you.
