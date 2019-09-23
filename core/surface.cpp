@@ -116,6 +116,11 @@ void c_surface::draw_pixel_on_fb(int x, int y, unsigned int rgb)
 
 void c_surface::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order)
 {
+	x0 = (x0 < 0) ? 0 : x0;
+	y0 = (y0 < 0) ? 0 : y0;
+	x1 = (x1 > (m_width - 1)) ? (m_width - 1) : x1;
+	y1 = (y1 > (m_height - 1)) ? (m_height - 1) : y1;
+
 	rgb = GL_ROUND_RGB_32(rgb);
 	if (z_order == m_max_zorder)
 	{
@@ -147,11 +152,6 @@ void c_surface::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsi
 
 void c_surface::fill_rect_on_fb(int x0, int y0, int x1, int y1, unsigned int rgb)
 {
-	if (x0 < 0 || y0 < 0 || x1 < 0 || y1 < 0 ||
-		x0 >= m_width || x1 >= m_width || y0 >= m_height || y1 >= m_height)
-	{
-		ASSERT(false);
-	}
 	int display_width = m_display->get_width();
 	int display_height = m_display->get_height();
 
