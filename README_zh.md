@@ -25,8 +25,8 @@ GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如�
 ## 🔥新功能：3D引擎 - [Hello 3D](https://gitee.com/idea4good/GuiLiteSamples#hello-3d)
 - ![Hello3D](doc/Hello3D.gif)
 - 硬件要求：16K RAM, 36 MHZ(e.g, STM32F103)
-- 易于快速建立3D模型
 - 支持跨平台（例如：Windows, Linux, MCU, Qt, MFC）
+- 易于快速建立3D模型
 - 少许3D效果，可以有效提升UI体验
 
 ## 功能介绍
