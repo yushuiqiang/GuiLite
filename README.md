@@ -23,10 +23,11 @@ GuiLite is the smallest GUI library with 5000 lines of code, could run on **all 
 | --- | --- | --- |
 | 24 MHZ | 29 KB | 9 KB |
 
-## 🔥New feature：Lightweight(MCU level) 3D engine - [Hello 3D](https://gitee.com/idea4good/GuiLiteSamples#hello-3d)
+## 🔥New feature：3D engine - [Hello 3D](https://gitee.com/idea4good/GuiLiteSamples#hello-3d)
 - ![Hello3D](doc/Hello3D.gif)
-- Could run on limited resource hardware
-- Could build 3D object quickly, and run it on different platform(e.g, Windows, Linux, MCU, Qt)
+- Hardware requirment: 16K RAM, 36 MHZ
+- Cross platform(e.g, Windows, Linux, MCU, Qt, MFC)
+- Easy to build 3D object
 - Could upgrade your UI experience
 
 ## Features
@@ -63,7 +64,7 @@ We build GuiLite demo as docker image, you can update/deploy/run the latest GuiL
 ***
 ## Inject GuiLite Samples into 3D Web
 - ![GuiLiteGraphic](doc/GuiLite3D.gif)
-- Run GuiLite Samples[(HelloParticle, HelloWave)](https://gitee.com/idea4good/GuiLiteSamples#mcu-demos-hello-star--hello-particle--hello-wave--hello-notouch--hello-mario--hello-3d) on Web and 3D scenario
+- Run GuiLite Samples[(HelloParticle, HelloWave)](https://gitee.com/idea4good/GuiLiteSamples) on Web and 3D scenario
 - [Source code](https://github.com/idea4good/GuiLiteWeb/blob/master/CubeEx/main.js)
 ***
 ## Start with Demo
