@@ -18,15 +18,14 @@ c_surface::c_surface(c_display* display,  unsigned int width, unsigned int heigh
 	m_display = display;
 	m_phy_fb = display->m_phy_fb;
 	m_phy_write_index = &display->m_phy_write_index;
-	m_fb = m_usr = 0;
+	m_fb = 0;
 	m_top_zorder = m_max_zorder = Z_ORDER_LEVEL_0;
 	m_is_active = false;
 	m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
 }
 
-void c_surface::set_surface(void* wnd_root, Z_ORDER_LEVEL max_z_order)
+void c_surface::set_surface(Z_ORDER_LEVEL max_z_order)
 {
-	m_usr = wnd_root;
 	m_max_zorder = max_z_order;
 
 	if (m_display->m_surface_cnt > 1)
