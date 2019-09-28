@@ -36,7 +36,7 @@ c_display::c_display(void* phy_fb, unsigned int display_width, unsigned int disp
 
 c_surface* c_display::alloc_surface(Z_ORDER_LEVEL max_zorder)
 {
-	if(max_zorder >= Z_ORDER_LEVEL_MAX || m_surface_index >= m_surface_cnt);
+	if(max_zorder >= Z_ORDER_LEVEL_MAX || m_surface_index >= m_surface_cnt)
 	{
 		ASSERT(false);
 		return 0;
