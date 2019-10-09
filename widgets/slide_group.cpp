@@ -9,8 +9,9 @@
 #include "../widgets_include/gesture.h"
 #include "../widgets_include/slide_group.h"
 
-c_slide_group::c_slide_group() : m_gesture(this)
+c_slide_group::c_slide_group()
 {
+	m_gesture = new c_gesture(this);
 	for(int i = 0; i < MAX_PAGES; i++)
 	{
 		m_slides[i] = 0;
@@ -159,7 +160,7 @@ bool c_slide_group::on_touch(int x, int y, TOUCH_ACTION action)
 	x -= m_wnd_rect.m_left;
 	y -= m_wnd_rect.m_top;
 
-	if (m_gesture.handle_swipe(x, y, action))
+	if (m_gesture->handle_swipe(x, y, action))
 	{
 		if (m_slides[m_active_slide_index])
 		{

@@ -23,7 +23,7 @@ protected:
 	virtual c_wnd* clone(){return new c_slide_group();}
 	c_wnd* m_slides[MAX_PAGES];
 	int m_active_slide_index;
-	c_gesture m_gesture;
+	c_gesture* m_gesture;
 };
 
 #endif
