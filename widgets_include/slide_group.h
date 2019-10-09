@@ -2,7 +2,7 @@
 #define GUILITE_WIDGETS_INCLUDE_SLIDE_GROUP_H
 
 #define MAX_PAGES	5
-
+class c_gesture;
 class c_slide_group : public c_wnd {
 public:
 	c_slide_group();
