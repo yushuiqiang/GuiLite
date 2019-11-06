@@ -39,9 +39,9 @@ GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如�
 | --- | --- |
 | ![Win MR](doc/WinMR.gif) | ![Android](doc/Android.gif) |
 
-| macOS | iOS |
+| macOS | iOS & Apple Watch |
 | --- | --- |
-| ![macOS](doc/Mac.gif) | ![iOS.hostMonitor](doc/iOS.gif)  ![iOS.particle](doc/iOS.particle.gif) |
+| ![macOS](doc/Mac.gif) | ![iOS.hostMonitor](doc/iOS.gif) ![iOS.particle](doc/iOS.particle.gif) ![iWatch.helloWave](doc/iWatch.helloWave.gif) |
 ***
 ### 🔍GuiLite Previewer(所见即所得的GuiLite开发插件)
 [GuiLite Previewer](https://github.com/idea4good/GuiLitePreviewer)是一个Visual Studio Code插件，它可以自动提取源代码的GUI布局信息，并实时显示在“预览”页面上(所见即所得)
@@ -61,14 +61,14 @@ GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如�
 我们把GuiLite demo做成了Docker映像，只需一行命令，就可以将最新的GuiLite demo升级/部署/运行在你的设备上了。
 - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 ***
-## 📦支持GuiLite实例注入到：3D Web
-- ![GuiLiteGraphic](doc/GuiLite3D.gif)
-- GuiLite实例[(HelloParticle, HelloWave)](https://gitee.com/idea4good/GuiLiteSamples)运行在Web及3D环境
-- [源代码链接](https://github.com/idea4good/GuiLiteWeb/blob/master/CubeEx/main.js)
+## 📦3D
+- ![GuiLiteGraphic](doc/GuiLite3D.gif) ![Hello3D](doc/Hello3D.gif)
+- GuiLite实例[(HelloParticle, HelloWave)](https://gitee.com/idea4good/GuiLiteSamples)运行在Web及3D环境，[代码在这里](https://github.com/idea4good/GuiLiteWeb/blob/master/CubeEx/main.js)
+- 在单片机上也能运行3D效果（具体参看GuiLiteSamples:Hello3D）
 ***
 ## 🚀快速上手
 GuiLite只是一个框架，本身并不能生成UI。为了能够展示如何用GuiLite开发App，我们提供了一些实例程序给大家参考。
-- 实例程序的代码在[这里](https://gitee.com/idea4good/GuiLiteSamples)。
+- 实例程序的代码在[这里](https://gitee.com/idea4good/GuiLiteSamples)
 - 实例程序的功能说明：
 
 | 实例名称 | 支持的平台 | 功能简介 | 编译方法 | 难度 |
