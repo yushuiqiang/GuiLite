@@ -13,7 +13,7 @@
 - [📞Community Channel](#community-channel)
 ***
 ## Introduction
-GuiLite is the smallest GUI library with 5000 lines of code, could run on **all platforms**(e.g, iOS, Android, Linux, Windows, macOS, Docker and MCU without OS), and work with **many languages**(e.g. Swift, Java, Javascript, C#, Golang).
+GuiLite is the smallest GUI library with 5000 lines of code, could run on **all platforms**(e.g, iOS/macOS/WathOS, Android, Linux, Windows, Docker and MCU without OS), and work with **many languages**(e.g. Swift, Java, Javascript, C#, Golang).
 - ✂️Small: 5,000 lines of C++ code, could be merged into 1 header & 1 source file(GuiLite.h/GuiLite.cpp) - Easy to [build & port](doc/HowToBuild.md)
 - ⚡Fast: Render GUI within one invoking, independent of any OS and any third party library -  Make GUI run quickly and smoothly
 - 💉Inject: Run inside Qt/MFC/Winform/Cocoa/Web - Keep Qt/MFC code reusable, and speed it up by local GuiLite-optimization
@@ -23,12 +23,12 @@ GuiLite is the smallest GUI library with 5000 lines of code, could run on **all 
 | --- | --- | --- |
 | 24 MHZ | 29 KB | 9 KB |
 
-## 🔥New feature：3D engine - [Hello 3D](https://gitee.com/idea4good/GuiLiteSamples#hello-3d)
-- ![Hello3D](doc/Hello3D.gif)
-- Hardware requirment: 16K RAM, 36 MHZ
-- Cross platform(e.g, Windows, Linux, MCU, Qt, MFC)
-- Easy to build 3D object
-- Could upgrade your UI experience
+## 🔥New feature：Apple Watch
+Run GuiLite both on MCU and Apple Watch:
+| MCU | Apple Watch |
+| --- | --- |
+| ![Hello3D](doc/Hello3D.gif) | ![iWatch.hello3D](doc/iWatch.hello3D.gif) |
+| ![MCU](doc/HelloWave.gif) | ![iWatch.helloWave](doc/iWatch.helloWave.gif) |
 
 ## ✨Features
 ### ⚔️Cross platform

@@ -12,7 +12,7 @@
 - [📞社区交流](#社区交流)
 ***
 ## GuiLite是什么鬼？
-GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如：iOS，Android，Linux（ARM/x86-64），Windows（包含VR），Mac，Docker和MCU）上；也可以与**多种语言**（例如： Swift, Java, Javascript, C#, Golang）协同工作。
+GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如：iOS/macOS/WathOS，Android，Linux（ARM/x86-64），Windows（包含VR），Docker和MCU）上；也可以与**多种语言**（例如： Swift, Java, Javascript, C#, Golang）协同工作。
 - ✂️轻量: 5千行C++代码，可合并在：1个头文件(GuiLite.h)，1个实现文件(GuiLite.cpp)中 - 轻松[编译/移植](doc/HowToBuild.md)
 - ⚡超快: 一次调用就可以完成图形渲染，与操作系统及第三方库无关 - 程序更快速，UI更流畅
 - 💉可注入: 可注入在Qt/MFC/Winform/Cocoa/Web程序中运行 - 充分利用现有Qt/MFC代码，局部GuiLite优化，亦可显著提升效率
@@ -22,12 +22,12 @@ GuiLite是5千行的图形界面库，可以运行在**所有平台**（例如�
 | --- | --- | --- |
 | 24 MHZ | 29 KB | 9 KB |
 
-## 🔥新功能：3D引擎 - [Hello 3D](https://gitee.com/idea4good/GuiLiteSamples#hello-3d)
-- ![Hello3D](doc/Hello3D.gif)
-- 硬件要求：16K RAM, 36 MHZ(e.g, STM32F103)
-- 支持跨平台（例如：Windows, Linux, MCU, Qt, MFC）
-- 易于快速建立3D模型
-- 少许3D效果，可以有效提升UI体验
+## 🔥新功能：苹果手表
+GuiLite程序，可以同时运行在单片机和苹果“手表”上：
+| MCU | Apple Watch |
+| --- | --- |
+| ![Hello3D](doc/Hello3D.gif) | ![iWatch.hello3D](doc/iWatch.hello3D.gif) |
+| ![MCU](doc/HelloWave.gif) | ![iWatch.helloWave](doc/iWatch.helloWave.gif) |
 
 ## ✨功能介绍
 ### ⚔️卓越的跨平台能力
