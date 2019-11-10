@@ -1,4 +1,4 @@
-#if (!defined _WIN32) && (!defined WIN32) && (!defined _WIN64) && (!defined WIN64) && (!defined __linux__) && && (!defined __APPLE__)
+#if (!defined _WIN32) && (!defined WIN32) && (!defined _WIN64) && (!defined WIN64) && (!defined __linux__) && (!defined __APPLE__)
 
 #include "../../core_include/api.h"
 #include <stdio.h>
