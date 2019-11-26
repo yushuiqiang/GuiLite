@@ -13,7 +13,7 @@ set YY=%YYYY:~0,2%
 if not "%YY%" == "20" (rem For Chinese date format
     for /f "tokens=1-3 delims=/ "  %%a in ("%date%") do (set YYYY=%%a& set MM=%%b& set DD=%%c))
 
-set datetime=%YYYY%-%MM%-%DD%T%time: =0%0+0800
+set datetime=%YYYY%-%MM%-%DD%T%time: =0%0Z
 set devie_info=Win-%USERNAME%
 set raw_data=[{^
 \"device_info\" :\"%devie_info%\",^
