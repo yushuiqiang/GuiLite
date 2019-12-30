@@ -1170,7 +1170,7 @@ void c_wnd::on_touch(int x, int y, TOUCH_ACTION action)
 	c_wnd* tmp_child = m_top_child;
 	while (tmp_child)
 	{
-		if ((tmp_child->m_attr & ATTR_MODAL) && (tmp_child->m_attr & ATTR_VISIBLE))
+		if ((tmp_child->m_attr & ATTR_PRIORITY) && (tmp_child->m_attr & ATTR_VISIBLE))
 		{
 			model_wnd = tmp_child;
 			break;
@@ -1204,7 +1204,7 @@ void c_wnd::on_key(KEY_TYPE key)
 	c_wnd* tmp_child = m_top_child;
 	while (tmp_child)
 	{
-		if ((tmp_child->m_attr & ATTR_MODAL) && (tmp_child->m_attr & ATTR_VISIBLE))
+		if ((tmp_child->m_attr & ATTR_PRIORITY) && (tmp_child->m_attr & ATTR_VISIBLE))
 		{
 			model_wnd = tmp_child;
 			break;
@@ -2766,7 +2766,7 @@ int c_dialog::open_dialog(c_dialog* p_dlg, bool modal_mode)
 	c_rect rc;
 	p_dlg->get_screen_rect(rc);
 	p_dlg->get_surface()->set_frame_layer_visible_rect(rc, Z_ORDER_LEVEL_1);
-	p_dlg->set_attr(modal_mode ? (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_MODAL) : (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS));
+	p_dlg->set_attr(modal_mode ? (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_PRIORITY) : (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS));
 	p_dlg->show_window();
 	p_dlg->set_me_the_dialog();
 	return 1;
@@ -2948,7 +2948,7 @@ void c_edit::on_paint()
 		if (m_z_order == m_parent->get_z_order())
 		{
 			m_z_order++;
-			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_MODAL);
+			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_PRIORITY);
 			show_keyboard();
 		}
 		m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, c_theme::get_color(COLOR_WND_PUSHED), m_parent->get_z_order());
@@ -3510,7 +3510,7 @@ void c_list_box::on_paint()
 				m_z_order++;
 			}
 			m_surface->set_frame_layer_visible_rect(m_list_screen_rect, m_z_order);
-			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_MODAL);
+			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_PRIORITY);
 			show_list();
 		}
 		break;

@@ -358,7 +358,7 @@ typedef enum
 {
 	ATTR_VISIBLE	= 0x40000000L,
 	ATTR_FOCUS		= 0x20000000L,
-	ATTR_MODAL		= 0x10000000L// Handle touch action at high priority
+	ATTR_PRIORITY	= 0x10000000L// Handle touch action at high priority
 }WND_ATTRIBUTION;
 typedef enum
 {

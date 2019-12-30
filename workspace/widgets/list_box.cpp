@@ -75,7 +75,7 @@ void c_list_box::on_paint()
 				m_z_order++;
 			}
 			m_surface->set_frame_layer_visible_rect(m_list_screen_rect, m_z_order);
-			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_MODAL);
+			m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS | ATTR_PRIORITY);
 			show_list();
 		}
 		break;

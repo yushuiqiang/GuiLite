@@ -335,7 +335,7 @@ void c_wnd::on_touch(int x, int y, TOUCH_ACTION action)
 	c_wnd* tmp_child = m_top_child;
 	while (tmp_child)
 	{
-		if ((tmp_child->m_attr & ATTR_MODAL) && (tmp_child->m_attr & ATTR_VISIBLE))
+		if ((tmp_child->m_attr & ATTR_PRIORITY) && (tmp_child->m_attr & ATTR_VISIBLE))
 		{
 			model_wnd = tmp_child;
 			break;
@@ -371,7 +371,7 @@ void c_wnd::on_key(KEY_TYPE key)
 	c_wnd* tmp_child = m_top_child;
 	while (tmp_child)
 	{
-		if ((tmp_child->m_attr & ATTR_MODAL) && (tmp_child->m_attr & ATTR_VISIBLE))
+		if ((tmp_child->m_attr & ATTR_PRIORITY) && (tmp_child->m_attr & ATTR_VISIBLE))
 		{
 			model_wnd = tmp_child;
 			break;
