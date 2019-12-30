@@ -41,10 +41,22 @@ void c_edit::set_text(const char* str)
 	}
 }
 
-bool c_edit::on_touch(int x, int y, TOUCH_ACTION action)
+void c_edit::on_key(KEY_TYPE key)
+{
+	switch (key)
+	{
+	case KEY_ENTER:
+		(m_status == STATUS_PUSHED) ? s_keyboard.on_key(key) : (on_touch(m_wnd_rect.m_left, m_wnd_rect.m_top, TOUCH_DOWN), on_touch(m_wnd_rect.m_left, m_wnd_rect.m_top, TOUCH_UP));
+		return;
+	case KEY_BACKWARD:
+	case KEY_FORWARD:
+		return (m_status == STATUS_PUSHED) ? s_keyboard.on_key(key) : c_wnd::on_key(key);
+	}
+}
+
+void c_edit::on_touch(int x, int y, TOUCH_ACTION action)
 {
 	(action == TOUCH_DOWN) ? on_touch_down(x, y) : on_touch_up(x, y);
-	return true;
 }
 
 void c_edit::on_touch_down(int x, int y)
