@@ -79,6 +79,7 @@
   </tr>
   <tr>
   <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloAnimation"><img src="documents/HelloAnimation.gif" width="200px;"/><br /><sub><b>Animation on STM32</b></sub></a>
+  <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloCircle"><img src="documents/HelloCircle.gif" width="200px;"/><br /><sub><b>3D circle on STM32</b></sub></a>
   </tr>
 </table>
 
