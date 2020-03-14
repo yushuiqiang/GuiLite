@@ -389,8 +389,9 @@ class c_surface;
 class c_display {
 	friend class c_surface;
 public:
-	inline c_display(void* phy_fb, int display_width, int display_height, int surface_width, int surface_height, unsigned int color_bytes, int surface_cnt, EXTERNAL_GFX_OP* gfx_op = 0);
-	inline c_surface* alloc_surface(Z_ORDER_LEVEL max_zorder);
+	inline c_display(void* phy_fb, int display_width, int display_height, int surface_width, int surface_height, unsigned int color_bytes, int surface_cnt, EXTERNAL_GFX_OP* gfx_op = 0);//multiple surface or surface_no_fb
+	inline c_display(void* phy_fb, int display_width, int display_height, c_surface* surface);//single custom surface
+	inline c_surface* alloc_surface(Z_ORDER_LEVEL max_zorder);//for multiple surfaces
 	inline int swipe_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y1, int offset);
 	int get_width() { return m_width; }
 	int get_height() { return m_height; }
@@ -441,10 +442,10 @@ private:
 	int				m_width;		//in pixels
 	int				m_height;		//in pixels
 	int				m_color_bytes;	//16 bits, 32 bits only
-	void* m_phy_fb;
+	void*			m_phy_fb;
 	int				m_phy_read_index;
 	int				m_phy_write_index;
-	c_surface* m_surface_group[SURFACE_CNT_MAX];
+	c_surface*		m_surface_group[SURFACE_CNT_MAX];
 	int				m_surface_cnt;
 	int				m_surface_index;
 };
@@ -459,28 +460,10 @@ public:
 class c_surface {
 	friend class c_display; friend class c_bitmap;
 public:
-	c_surface(c_display* display, unsigned int width, unsigned int height, unsigned int color_bytes) : m_width(width), m_height(height), m_color_bytes(color_bytes), m_fb(0), m_is_active(false), m_max_zorder(Z_ORDER_LEVEL_0), m_top_zorder(Z_ORDER_LEVEL_0), m_phy_fb(0), m_phy_write_index(0), m_display(0)
+	c_surface(unsigned int width, unsigned int height, unsigned int color_bytes, Z_ORDER_LEVEL max_zorder = Z_ORDER_LEVEL_0) : m_width(width), m_height(height), m_color_bytes(color_bytes), m_fb(0), m_is_active(false), m_top_zorder(Z_ORDER_LEVEL_0), m_phy_fb(0), m_phy_write_index(0), m_display(0)
 	{
-		if (display)
-		{
-			m_display = display;
-			m_phy_fb = display->m_phy_fb;
-			m_phy_write_index = &display->m_phy_write_index;
-		}
+		set_surface(max_zorder);
 		m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
-	}
-	void set_surface(Z_ORDER_LEVEL max_z_order)
-	{
-		m_max_zorder = max_z_order;
-		if (m_display->m_surface_cnt > 1)
-		{
-			m_fb = calloc(m_width * m_height, m_color_bytes);
-		}
-		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
-		{//Top layber fb always be 0
-			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, sizeof(unsigned short));
-			ASSERT(0 != m_frame_layers[i].fb);
-		}
 	}
 	int get_width() { return m_width; }
 	int get_height() { return m_height; }
@@ -843,9 +826,7 @@ protected:
 		{
 			(m_color_bytes == 4) ? ((unsigned int*)m_fb)[y * m_width + x] = rgb : ((unsigned short*)m_fb)[y * m_width + x] = GL_RGB_32_to_16(rgb);
 		}
-		int display_width = m_display->get_width();
-		int display_height = m_display->get_height();
-		if (m_is_active && (x < display_width) && (y < display_height))
+		if (m_is_active && (x < m_display->get_width()) && (y < m_display->get_height()))
 		{
 			if (m_color_bytes == 4)
 			{
@@ -858,23 +839,44 @@ protected:
 			*m_phy_write_index = *m_phy_write_index + 1;
 		}
 	}
+	void attach_display(c_display* display)
+	{
+		ASSERT(display);
+		m_display = display;
+		m_phy_fb = display->m_phy_fb;
+		m_phy_write_index = &display->m_phy_write_index;
+	}
+	void set_surface(Z_ORDER_LEVEL max_z_order)
+	{
+		m_max_zorder = max_z_order;
+		if (m_display && (m_display->m_surface_cnt > 1))
+		{
+			m_fb = calloc(m_width * m_height, m_color_bytes);
+		}
+		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
+		{//Top layber fb always be 0
+			ASSERT(!m_frame_layers[i].fb);
+			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, sizeof(unsigned short));
+			ASSERT(m_frame_layers[i].fb);
+		}
+	}
 	int				m_width;		//in pixels
 	int				m_height;		//in pixels
 	int				m_color_bytes;	//16 bits, 32 bits only
-	void* m_fb;						//frame buffer you could see
+	void*			m_fb;			//frame buffer you could see
 	c_frame_layer 	m_frame_layers[Z_ORDER_LEVEL_MAX];//Top layber fb always be 0
 	bool			m_is_active;
 	Z_ORDER_LEVEL	m_max_zorder;
 	Z_ORDER_LEVEL	m_top_zorder;
-	void* m_phy_fb;
-	int* m_phy_write_index;
-	c_display* m_display;
+	void*			m_phy_fb;
+	int*			m_phy_write_index;
+	c_display*		m_display;
 };
 class c_surface_no_fb : public c_surface {//No physical framebuffer
 	friend class c_display;
+public:
+	c_surface_no_fb(unsigned int width, unsigned int height, unsigned int color_bytes, struct EXTERNAL_GFX_OP* gfx_op, Z_ORDER_LEVEL max_zorder = Z_ORDER_LEVEL_0) : c_surface(width, height, color_bytes, max_zorder), m_gfx_op(gfx_op) {}
 protected:
-	c_surface_no_fb(c_display* display, unsigned int width, unsigned int height, unsigned int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) :
-		c_surface(display, width, height, color_bytes), m_gfx_op(gfx_op) {}
 	virtual void fill_rect_on_fb(int x0, int y0, int x1, int y1, unsigned int rgb)
 	{
 		if (!m_gfx_op)
@@ -942,11 +944,7 @@ protected:
 };
 inline c_display::c_display(void* phy_fb, int display_width, int display_height, int surface_width, int surface_height, unsigned int color_bytes, int surface_cnt, EXTERNAL_GFX_OP* gfx_op) : m_width(display_width), m_height(display_height), m_color_bytes(color_bytes), m_phy_fb(phy_fb), m_phy_read_index(0), m_phy_write_index(0), m_surface_cnt(surface_cnt), m_surface_index(0)
 {
-	if (color_bytes != 2 && color_bytes != 4)
-	{
-		log_out("Support 16 bits, 32 bits color only!");
-		ASSERT(false);
-	}
+	ASSERT(color_bytes == 2 || color_bytes == 4);
 	ASSERT(m_surface_cnt <= SURFACE_CNT_MAX);
 	memset(m_surface_group, 0, sizeof(m_surface_group));
 	
@@ -954,7 +952,7 @@ inline c_display::c_display(void* phy_fb, int display_width, int display_height,
 	{// Avoid new operation, new operation maybe crash program on Keil platform sometimes.
 		if (phy_fb)
 		{
-			c_surface tmp(this, surface_width, surface_height, color_bytes);
+			c_surface tmp(surface_width, surface_height, color_bytes);
 			c_surface* surface = (c_surface*)malloc(sizeof(c_surface));
 			ASSERT(surface);
 			memcpy(surface, &tmp, sizeof(tmp));
@@ -962,24 +960,25 @@ inline c_display::c_display(void* phy_fb, int display_width, int display_height,
 		}
 		else
 		{
-			c_surface_no_fb tmp(this, surface_width, surface_height, color_bytes, gfx_op);
+			c_surface_no_fb tmp(surface_width, surface_height, color_bytes, gfx_op);
 			c_surface_no_fb* surface = (c_surface_no_fb*)malloc(sizeof(c_surface_no_fb));
 			ASSERT(surface);
 			memcpy(surface, &tmp, sizeof(tmp));
 			m_surface_group[i] = surface;
 		}
+		m_surface_group[i]->attach_display(this);
 	}
+}
+inline c_display::c_display(void* phy_fb, int display_width, int display_height, c_surface* surface) : m_width(display_width), m_height(display_height), m_phy_fb(phy_fb), m_phy_read_index(0), m_phy_write_index(0), m_surface_cnt(1), m_surface_index(0)
+{
+	surface->m_is_active = true;
+	(m_surface_group[0] = surface)->attach_display(this);
 }
 inline c_surface* c_display::alloc_surface(Z_ORDER_LEVEL max_zorder)
 {
-	if (max_zorder >= Z_ORDER_LEVEL_MAX || m_surface_index >= m_surface_cnt)
-	{
-		ASSERT(false);
-		return 0;
-	}
-	int i = m_surface_index++;
-	m_surface_group[i]->set_surface(max_zorder);
-	return m_surface_group[i];
+	ASSERT(max_zorder < Z_ORDER_LEVEL_MAX && m_surface_index < m_surface_cnt);
+	m_surface_group[m_surface_index]->set_surface(max_zorder);
+	return m_surface_group[m_surface_index++];
 }
 inline int c_display::swipe_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y1, int offset)
 {
