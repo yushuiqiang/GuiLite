@@ -111,8 +111,9 @@ class c_surface {
 public:
 	c_surface(unsigned int width, unsigned int height, unsigned int color_bytes, Z_ORDER_LEVEL max_zorder = Z_ORDER_LEVEL_0) : m_width(width), m_height(height), m_color_bytes(color_bytes), m_fb(0), m_is_active(false), m_top_zorder(Z_ORDER_LEVEL_0), m_phy_fb(0), m_phy_write_index(0), m_display(0)
 	{
-		set_surface(max_zorder);
+		memset(m_frame_layers, 0, sizeof(m_frame_layers));
 		m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
+		set_surface(max_zorder);
 	}
 
 	int get_width() { return m_width; }
@@ -543,6 +544,7 @@ protected:
 
 		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
 		{//Top layber fb always be 0
+			ASSERT(!m_frame_layers[i].fb);
 			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, sizeof(unsigned short));
 			ASSERT(m_frame_layers[i].fb);
 		}
