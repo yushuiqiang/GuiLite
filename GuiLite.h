@@ -855,7 +855,6 @@ protected:
 		}
 		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
 		{//Top layber fb always be 0
-			ASSERT(!m_frame_layers[i].fb);
 			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, sizeof(unsigned short));
 			ASSERT(m_frame_layers[i].fb);
 		}
