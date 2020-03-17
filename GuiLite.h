@@ -453,42 +453,40 @@ class c_frame_layer
 {
 public:
 	c_frame_layer() { fb = 0; }
-	unsigned short* fb;
+	void* fb;
 	c_rect 	visible_rect;
 };
-#define GL_ROUND_RGB_32(rgb) (rgb & 0xFFF8FCF8) //make RGB32 = RGB16
 class c_surface {
 	friend class c_display; friend class c_bitmap;
 public:
 	c_surface(unsigned int width, unsigned int height, unsigned int color_bytes, Z_ORDER_LEVEL max_zorder = Z_ORDER_LEVEL_0) : m_width(width), m_height(height), m_color_bytes(color_bytes), m_fb(0), m_is_active(false), m_top_zorder(Z_ORDER_LEVEL_0), m_phy_fb(0), m_phy_write_index(0), m_display(0)
 	{
-		set_surface(max_zorder);
+		memset(m_frame_layers, 0, sizeof(m_frame_layers));
 		m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
+		set_surface(max_zorder);
 	}
 	int get_width() { return m_width; }
 	int get_height() { return m_height; }
 	unsigned int get_pixel(int x, int y, unsigned int z_order)
 	{
-		if (x >= m_width || y >= m_height || x < 0 || y < 0 ||
-			z_order >= Z_ORDER_LEVEL_MAX)
+		if (x >= m_width || y >= m_height || x < 0 || y < 0 || z_order >= Z_ORDER_LEVEL_MAX)
 		{
 			ASSERT(false);
 			return 0;
 		}
-		if (z_order == m_max_zorder)
+		if (m_frame_layers[z_order].fb)
 		{
-			if (m_fb)
-			{
-				return (m_color_bytes == 4) ? ((unsigned int*)m_fb)[y * m_width + x] : GL_RGB_16_to_32(((unsigned short*)m_fb)[y * m_width + x]);
-			}
-			else if (m_phy_fb)
-			{
-				return (m_color_bytes == 4) ? ((unsigned int*)m_phy_fb)[y * m_width + x] : GL_RGB_16_to_32(((unsigned short*)m_phy_fb)[y * m_width + x]);
-			}
-			return 0;
+			return (m_color_bytes == 4) ? ((unsigned int*)(m_frame_layers[z_order].fb))[y * m_width + x] : GL_RGB_16_to_32(((unsigned short*)(m_frame_layers[z_order].fb))[y * m_width + x]);
 		}
-		unsigned short rgb_16 = ((unsigned short*)(m_frame_layers[z_order].fb))[y * m_width + x];
-		return GL_RGB_16_to_32(rgb_16);
+		else if (m_fb)
+		{
+			return (m_color_bytes == 4) ? ((unsigned int*)m_fb)[y * m_width + x] : GL_RGB_16_to_32(((unsigned short*)m_fb)[y * m_width + x]);
+		}
+		else if (m_phy_fb)
+		{
+			return (m_color_bytes == 4) ? ((unsigned int*)m_phy_fb)[y * m_width + x] : GL_RGB_16_to_32(((unsigned short*)m_phy_fb)[y * m_width + x]);
+		}
+		return 0;
 	}
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
 	{
@@ -501,21 +499,28 @@ public:
 			ASSERT(false);
 			return;
 		}
-		rgb = GL_ROUND_RGB_32(rgb);
-		if (z_order == m_max_zorder)
-		{
-			return draw_pixel_on_fb(x, y, rgb);
-		}
-		if (z_order > (unsigned int)m_top_zorder)
-		{
-			m_top_zorder = (Z_ORDER_LEVEL)z_order;
-		}
 		if (0 == m_frame_layers[z_order].visible_rect.PtInRect(x, y))
 		{
 			ASSERT(false);
 			return;
 		}
-		((unsigned short*)(m_frame_layers[z_order].fb))[x + y * m_width] = GL_RGB_32_to_16(rgb);
+		if (z_order == m_max_zorder)
+		{
+			return draw_pixel_on_fb(x, y, rgb);
+		}
+		
+		if (z_order > (unsigned int)m_top_zorder)
+		{
+			m_top_zorder = (Z_ORDER_LEVEL)z_order;
+		}
+		if (m_color_bytes == 4)
+		{
+			((unsigned int*)(m_frame_layers[z_order].fb))[x + y * m_width] = rgb;
+		}
+		else
+		{
+			((unsigned short*)(m_frame_layers[z_order].fb))[x + y * m_width] = GL_RGB_32_to_16(rgb);
+		}
 		if (z_order == m_top_zorder)
 		{
 			return draw_pixel_on_fb(x, y, rgb);
@@ -540,7 +545,6 @@ public:
 		y0 = (y0 < 0) ? 0 : y0;
 		x1 = (x1 > (m_width - 1)) ? (m_width - 1) : x1;
 		y1 = (y1 > (m_height - 1)) ? (m_height - 1) : y1;
-		rgb = GL_ROUND_RGB_32(rgb);
 		if (z_order == m_max_zorder)
 		{
 			return fill_rect_on_fb(x0, y0, x1, y1, rgb);
@@ -548,15 +552,30 @@ public:
 		if (z_order == m_top_zorder)
 		{
 			int x, y;
-			unsigned short* mem_fb;
+			unsigned short* mem_fb_16 = 0;
+			unsigned int* mem_fb_32 = 0;
 			unsigned int rgb_16 = GL_RGB_32_to_16(rgb);
 			for (y = y0; y <= y1; y++)
 			{
 				x = x0;
-				mem_fb = &((unsigned short*)m_frame_layers[z_order].fb)[y * m_width + x];
+				if (m_color_bytes == 4)
+				{
+					mem_fb_32 = &((unsigned int*)m_frame_layers[z_order].fb)[y * m_width + x];
+				}
+				else
+				{
+					mem_fb_16 = &((unsigned short*)m_frame_layers[z_order].fb)[y * m_width + x];
+				}
 				for (; x <= x1; x++)
 				{
-					*mem_fb++ = rgb_16;
+					if (m_color_bytes == 4)
+					{
+						*mem_fb_32++ = rgb;
+					}
+					else
+					{
+						*mem_fb_16++ = rgb_16;
+					}
 				}
 			}
 			return fill_rect_on_fb(x0, y0, x1, y1, rgb);
@@ -754,8 +773,8 @@ public:
 			{
 				if (!rect.PtInRect(x, y))
 				{
-					unsigned int rgb = ((unsigned short*)(m_frame_layers[src_zorder].fb))[x + y * m_width];
-					draw_pixel_on_fb(x, y, GL_RGB_16_to_32(rgb));
+					unsigned int rgb = (m_color_bytes == 4) ? ((unsigned int*)(m_frame_layers[src_zorder].fb))[x + y * m_width] : GL_RGB_16_to_32(((unsigned short*)(m_frame_layers[src_zorder].fb))[x + y * m_width]);
+					draw_pixel_on_fb(x, y, rgb);
 				}
 			}
 		}
@@ -855,7 +874,8 @@ protected:
 		}
 		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
 		{//Top layber fb always be 0
-			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, sizeof(unsigned short));
+			ASSERT(!m_frame_layers[i].fb);
+			m_frame_layers[i].fb = calloc(m_width * m_height, m_color_bytes);
 			ASSERT(m_frame_layers[i].fb);
 		}
 	}
@@ -1341,16 +1361,19 @@ public:
 		{
 			return;
 		}
-		unsigned short* lower_fb = 0;
+		unsigned short* lower_fb_16 = 0;
+		unsigned int* lower_fb_32 = 0;
 		int lower_fb_width = surface->m_width;
 		if (z_order >= Z_ORDER_LEVEL_1)
 		{
-			lower_fb = surface->m_frame_layers[z_order - 1].fb;
+			lower_fb_16 = (unsigned short*)surface->m_frame_layers[z_order - 1].fb;
+			lower_fb_32 = (unsigned int*)surface->m_frame_layers[z_order - 1].fb;
 		}
 		unsigned int mask_rgb_16 = GL_RGB_32_to_16(mask_rgb);
 		int xsize = pBitmap->width;
 		int ysize = pBitmap->height;
 		const unsigned short* pData = (const unsigned short*)pBitmap->pixel_color_array;
+		int color_bytes = surface->m_color_bytes;
 		for (int j = 0; j < ysize; j++)
 		{
 			for (int i = 0; i < xsize; i++)
@@ -1358,9 +1381,9 @@ public:
 				unsigned int rgb = *pData++;
 				if (mask_rgb_16 == rgb)
 				{
-					if (lower_fb)
+					if (lower_fb_16)
 					{//restore lower layer
-						surface->draw_pixel(x + i, y + j, GL_RGB_16_to_32(lower_fb[(y + j) * lower_fb_width + x + i]), z_order);
+						surface->draw_pixel(x + i, y + j, (color_bytes == 4) ? lower_fb_32[(y + j) * lower_fb_width + x + i] : GL_RGB_16_to_32(lower_fb_16[(y + j) * lower_fb_width + x + i]), z_order);
 					}
 				}
 				else
@@ -1376,14 +1399,17 @@ public:
 		{
 			return;
 		}
-		unsigned short* lower_fb = 0;
+		unsigned short* lower_fb_16 = 0;
+		unsigned int* lower_fb_32 = 0;
 		int lower_fb_width = surface->m_width;
 		if (z_order >= Z_ORDER_LEVEL_1)
 		{
-			lower_fb = surface->m_frame_layers[z_order - 1].fb;
+			lower_fb_16 = (unsigned short*)surface->m_frame_layers[z_order - 1].fb;
+			lower_fb_32 = (unsigned int*)surface->m_frame_layers[z_order - 1].fb;
 		}
 		unsigned int mask_rgb_16 = GL_RGB_32_to_16(mask_rgb);
 		const unsigned short* pData = (const unsigned short*)pBitmap->pixel_color_array;
+		int color_bytes = surface->m_color_bytes;
 		for (int j = 0; j < height; j++)
 		{
 			const unsigned short* p = &pData[src_x + (src_y + j) * pBitmap->width];
@@ -1392,9 +1418,9 @@ public:
 				unsigned int rgb = *p++;
 				if (mask_rgb_16 == rgb)
 				{
-					if (lower_fb)
+					if (lower_fb_16)
 					{//restore lower layer
-						surface->draw_pixel(x + i, y + j, GL_RGB_16_to_32(lower_fb[(y + j) * lower_fb_width + x + i]), z_order);
+						surface->draw_pixel(x + i, y + j, (color_bytes == 4) ? lower_fb_32[(y + j) * lower_fb_width + x + i] : GL_RGB_16_to_32(lower_fb_16[(y + j) * lower_fb_width + x + i]), z_order);
 					}
 				}
 				else
