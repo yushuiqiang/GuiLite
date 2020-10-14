@@ -75,10 +75,10 @@ Click the image you like, and run it on your hardware
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloCircle"><img src="documents/HelloCircle.gif" width="200px;"/><br /><sub><b>3D circle on STM32</b></sub></a>
   </tr>
   <tr>
+  <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/Hello3Ddonut"><img src="documents/Hello3Ddonut.gif" width="200px;"/><br /><sub><b>3D donut on STM32</b></sub></a>
   <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloTimer"><img src="documents/HelloTimer.gif" width="200px;"/><br /><sub><b>Timer</b></sub></a>
   <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloMolecule"><img src="documents/HelloMolecule.gif" width="200px;"/><br /><sub><b>Molecule move</b></sub></a>
   <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloPendulum"><img src="documents/HelloPendulum.gif" width="200px;"/><br /><sub><b>Pendulum effect</b></sub></a>
-  <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloSlide"><img src="documents/HelloSlide.gif" width="200px;"/><br /><sub><b>Swipe view</b></sub></a>
   </tr>
   <tr>
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/Hello3D"><img src="documents/iWatch.hello3D.gif" width="200px;"/><br /><sub><b>3D on Apple Watch</b></sub></a>
@@ -99,7 +99,11 @@ Click the image you like, and run it on your hardware
   </tr>
   <tr>
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloScroll"><img src="documents/HelloScroll.gif" width="600px;"/><br /><sub><b>Scroll widget</b></sub></a>
+    <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloFFmpeg"><img src="documents/HelloFFmpeg.jpg" width="600px;"/><br /><sub><b>Video: GuiLite + FFmpeg</b></sub></a>
+  </tr>
+  <tr>
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloTransparent"><img src="documents/HelloTransparent.gif" width="600px;"/><br /><sub><b>Transparent dialog</b></sub></a>
+    <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloSlide"><img src="documents/HelloSlide.gif" width="600px;"/><br /><sub><b>Swipe view</b></sub></a>
   </tr>
 </table>
 
@@ -124,9 +128,6 @@ Click the image you like, and run it on your hardware
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HostMonitor"><img src="documents/Mac.gif" width="300px;"/><br /><sub><b>HostMonitor on Mac</b></sub></a>
     <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HostMonitor"><img src="documents/Linux.gif" width="300px;"/><br /><sub><b>HostMonitor on Linux</b></sub></a>
   </tr>
-  <tr>
-    <td align="center"><a href="https://gitee.com/idea4good/GuiLiteSamples/tree/master/HelloFFmpeg"><img src="documents/HelloFFmpeg.jpg" width="300px;"/><br /><sub><b>Video: GuiLite + FFmpeg</b></sub></a>
-  </tr>
 </table>
 
 Most of the demos have about 100 lines of UI code, more details [here.](https://gitee.com/idea4good/GuiLiteSamples)
@@ -137,8 +138,8 @@ Thanks for the help from the community, you all make GuiLite better! And welcome
 - QQ group code:
 <table>
   <tr>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="documents/qq.group-1.jpg" width="240px;"/><br /><sub><b>大群（免审）：527251257</b></sub></a>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="documents/qq.group-2.jpg" width="240px;"/><br /><sub><b>中群（免审）：841031761</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="documents/qq.group-1.jpg" width="240px;"/><br /><sub><b>大群：527251257</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="documents/qq.group-2.jpg" width="240px;"/><br /><sub><b>中群：841031761</b></sub></a>
     <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=5hc3qwj"><img src="documents/qq.group-3.jpg" width="240px;"/><br /><sub><b>免费群：717471210</b></sub></a>
   </tr>
 </table>
