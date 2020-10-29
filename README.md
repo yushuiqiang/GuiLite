@@ -18,7 +18,7 @@
 ## Lightweight
 - ✂️Small: 4,000+ lines of C++ code, zero dependency, header-only(GuiLite.h)
 - ⚡Fast: High Rendering performance, even work on MCU
-- 💉Embeddable: Runs inside Qt/MFC/Winform/Cocoa/Web - Keep legacy Qt/MFC code reusable
+- 👫🏻Compatible: Work smoothly with 3rd party frameworks(Qt/MFC/Winform/Cocoa/Web)
 - ⚙️️Hardware Minimum Requirements:
 
     | Processor | Disk/ROM space | Memory |
