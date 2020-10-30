@@ -13,7 +13,7 @@
     <img src="documents/WhyGuiLite-cn.png" alt="Why GuiLite"/>
 </p>
 
-## 轻-快-兼
+## 轻-快-容
 - ✂️轻量: 4千行C++代码，0依赖，单一头文件库（GuiLite.h）
 - ⚡超快: 高效渲染，单片机上也能流畅运行
 - 👫🏻兼容: 完美兼容第3方GUI框架(Qt/MFC/Winform/Cocoa/Web)，现有Qt/MFC代码可以继续使用
