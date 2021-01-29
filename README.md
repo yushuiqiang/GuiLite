@@ -30,11 +30,11 @@
 - Supported languages: C/C++, Swift, Java, Javascript, C#, Golang...
 - Supported 3rd party libraries: Qt, MFC, Winforms, CoCoa...
 
-## Useful features
+## Hero features
+- ☁️Cloud + IoT Solution: master your IoT business all over the world
 - 🔣Multi-language, supports UTF-8;📀Playback Video
 - 🔨[Toolkit](https://github.com/idea4good/GuiLiteToolkit) for building font/image resources
 - 📐[Layout GUI WYSIWYG](https://github.com/idea4good/GuiLitePreviewer)
-- ☁️Cloud + IoT Solution
 - 📊Code Telemetry and Analysis in real time
 - 📦Supports 3D and [Web](https://github.com/idea4good/GuiLiteWeb)
 - 🐋Run in docker with a single command: `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
