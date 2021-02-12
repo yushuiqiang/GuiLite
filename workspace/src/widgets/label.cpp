@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/label.h"
+﻿#include "../../include/widgets_include/label.h"
 
 void c_label::on_paint()
 {

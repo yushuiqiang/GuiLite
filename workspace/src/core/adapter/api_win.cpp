@@ -1,7 +1,7 @@
-#ifdef GUILITE_ON
+﻿#ifdef GUILITE_ON
 #if (defined _WIN32) || (defined WIN32) || (defined _WIN64) || (defined WIN64)
 
-#include "../../core_include/api.h"
+#include "../../../include/core_include/api.h"
 #include <string.h>
 #include <stdio.h>
 #include <time.h>

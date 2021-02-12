@@ -1,4 +1,4 @@
-﻿#include "../core_include/display.h"
+﻿#include "../../include/core_include/display.h"
 
 int c_display::get_width()
 {

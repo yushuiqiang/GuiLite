@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/edit.h"
+﻿#include "../../include/widgets_include/edit.h"
 
 #ifdef GUILITE_ON
 

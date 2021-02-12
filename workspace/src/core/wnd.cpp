@@ -1,4 +1,4 @@
-﻿#include "../core_include/wnd.h"
+﻿#include "../../include/core_include/wnd.h"
 
 c_wnd::c_wnd() : m_status(STATUS_NORMAL),
     m_attr((WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS)),

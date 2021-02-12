@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/slide_group.h"
+﻿#include "../../include/widgets_include/slide_group.h"
 
 int c_slide_group::set_active_slide(int index, bool is_redraw)
 {

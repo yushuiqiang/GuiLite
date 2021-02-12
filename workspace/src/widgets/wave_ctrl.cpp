@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/wave_ctrl.h"
+﻿#include "../../include/widgets_include/wave_ctrl.h"
 
 c_wave_ctrl::c_wave_ctrl()
 {

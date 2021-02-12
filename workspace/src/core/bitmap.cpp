@@ -1,4 +1,4 @@
-﻿#include "../core_include/bitmap.h"
+﻿#include "../../include/core_include/bitmap.h"
 
 void c_bitmap::draw_bitmap(c_surface* surface, int z_order, const BITMAP_INFO *pBitmap, int x, int y, unsigned int mask_rgb)
 {

@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/table.h"
+﻿#include "../../include/widgets_include/table.h"
 
 void c_table::set_sheet_align(unsigned int align_type)
 {

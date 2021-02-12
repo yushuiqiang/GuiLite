@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/spinbox.h"
+﻿#include "../../include/widgets_include/spinbox.h"
 
 
 short c_spin_box::get_value()

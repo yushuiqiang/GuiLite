@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/dialog.h"
+﻿#include "../../include/widgets_include/dialog.h"
 
 #ifdef GUILITE_ON
 

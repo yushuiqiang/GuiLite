@@ -1,4 +1,4 @@
-﻿#include "../widgets_include/wave_buffer.h"
+﻿#include "../../include/widgets_include/wave_buffer.h"
 
 c_wave_buffer::c_wave_buffer()
 {
