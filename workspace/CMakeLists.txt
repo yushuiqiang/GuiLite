@@ -4,7 +4,7 @@ PROJECT(GuiLite)
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 
-INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
 
 ADD_DEFINITIONS(-DGUILITE_ON)
 
@@ -27,7 +27,6 @@ ELSE ()
 	FILE(GLOB CORE_ADAPTER  core/adapter/api_unknown.cpp)
 ENDIF () 
 
-
 # gui
 FILE(GLOB WIDGETS_SRC       widgets/*.cpp)
 
@@ -37,4 +36,13 @@ ADD_LIBRARY(GuiLite STATIC ${CORE_SRC} ${CORE_ADAPTER} ${WIDGETS_SRC})
 # build shared library
 # ADD_LIBRARY(GuiLite SHARED ${CORE_SRC} ${CORE_ADAPTER} ${WIDGETS_SRC})
 
-execute_process(COMMAND ${CMAKE_SOURCE_DIR}/.sync.sh GuiLite)
+#set_target_properties(add_lib_shared PROPERTIES OUTPUT_NAME "add")
+#set_target_properties(add_lib_static PROPERTIES OUTPUT_NAME "add")
+
+#set_target_properties(add_lib_shared PROPERTIES VERSION 1.0 SOVERSION 1)
+
+#INSTALL(TARGETS add_lib_shared add_lib_static
+#    LIBRARY DESTINATION lib
+#    ARCHIVE DESTINATION lib)
+
+#INSTALL(FILES ${h_files}  DESTINATION include)
